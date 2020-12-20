@@ -1,8 +1,10 @@
 package com.gxsx.lostitems.Domain.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.gxsx.lostitems.Domain.board.Board;
 import com.gxsx.lostitems.Domain.comment.Comment;
 import lombok.AccessLevel;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -14,7 +16,7 @@ import java.util.List;
 @Getter
 @Entity
 @Table(name ="user")
-
+@Data
 public class User {
     @Id
     @Column(name = "userid",length = 30,nullable = false)
@@ -31,7 +33,7 @@ public class User {
 
     @Column(length = 30, nullable = false)
     private String phone;
-
+    @JsonIgnore
     @OneToMany(mappedBy = "user",targetEntity = Board.class)
     private List<Board> boards = new ArrayList<Board>();
     @OneToMany(mappedBy = "user",targetEntity = Comment.class)

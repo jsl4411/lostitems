@@ -1,8 +1,10 @@
 package com.gxsx.lostitems.Domain.board;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.gxsx.lostitems.Domain.comment.Comment;
 import com.gxsx.lostitems.Domain.user.User;
 import lombok.AccessLevel;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -14,12 +16,14 @@ import java.util.List;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Entity
+@Data
 @Table(name = "board")
 public class Board {
     @Id
     @Column(nullable = false)
     private Long board_seq;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name="userid", nullable = false)
     private User user;
@@ -44,6 +48,7 @@ public class Board {
 
     @Column(nullable = false)
     private Long board_group;
+
 
     @OneToMany(mappedBy = "board",targetEntity = Comment.class)
     private List<Comment> comments = new ArrayList<Comment>();

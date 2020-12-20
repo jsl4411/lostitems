@@ -1,5 +1,6 @@
 package com.gxsx.lostitems.Domain.comment;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.gxsx.lostitems.Domain.board.Board;
 import com.gxsx.lostitems.Domain.user.User;
 import lombok.AccessLevel;
@@ -17,11 +18,12 @@ public class Comment {
     @Id
     @Column(nullable = false)
     private Long comment_seq;
-
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name="seq",nullable = false)
     private Board board;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "userid",nullable = false)
     private User user;
