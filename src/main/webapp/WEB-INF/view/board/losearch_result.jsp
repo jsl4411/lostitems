@@ -3,7 +3,7 @@
 
 <div class="row isotope-grid">
 			
-			  <c:if test="${empty lostResult.list}">
+			  <c:if test="${empty Data.board_seq}">
 				  <center>데이터가 하나도 없음</center>
 			  </c:if>
 				

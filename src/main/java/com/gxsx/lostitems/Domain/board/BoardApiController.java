@@ -8,12 +8,11 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/board")
+@RequestMapping(value = "/board_api")
 
-public class BoardCotroller {
+public class BoardApiController {
     @Autowired
     BoardService boardService;
-    BoardRepository boardRepository;
 
     @RequestMapping(value = "")
     public String index(){
@@ -33,9 +32,9 @@ public class BoardCotroller {
         return boardData;
 
     }
-   /* @RequestMapping(value = "/create")
+    /*@RequestMapping(value = "/create")
     public String createBoard(Board board){
-        Board newBoard = boardRepository.save(board);
+        Board newBoard = boardService.save(board);
 
         return board.();
     }*/

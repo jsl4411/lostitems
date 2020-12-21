@@ -14,25 +14,25 @@
 		
 		<title>GxSx</title>
 		
-	<link rel="stylesheet" href="../css/beryllium/style.css">
-	<link rel="stylesheet" href="../css/beryllium/themify-icons.css">
-	<link rel="stylesheet" href="../css/topmenu.css">
+	<link rel="stylesheet" href="../../../../resources/static/css/beryllium/style.css">
+	<link rel="stylesheet" href="../../../../resources/static/css/beryllium/themify-icons.css">
+	<link rel="stylesheet" href="../../../../resources/static/css/topmenu.css">
 <!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="../images/coza/icons/favicon.png"/>
-	<link rel="stylesheet" type="text/css" href="../vendor/coza/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="../fonts/coza/font-awesome-4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="../fonts/coza/iconic/css/material-design-iconic-font.min.css">
-	<link rel="stylesheet" type="text/css" href="../fonts/coza/linearicons-v1.0.0/icon-font.min.css">
-	<link rel="stylesheet" type="text/css" href="../vendor/coza/animate/animate.css">	
-	<link rel="stylesheet" type="text/css" href="../vendor/coza/css-hamburgers/hamburgers.min.css">
-	<link rel="stylesheet" type="text/css" href="../vendor/coza/animsition/css/animsition.min.css">
-	<link rel="stylesheet" type="text/css" href="../vendor/coza/select2/select2.min.css">
-	<link rel="stylesheet" type="text/css" href="../vendor/coza/daterangepicker/daterangepicker.css">
-	<link rel="stylesheet" type="text/css" href="../vendor/coza/slick/slick.css">
-	<link rel="stylesheet" type="text/css" href="../vendor/coza/MagnificPopup/magnific-popup.css">
-	<link rel="stylesheet" type="text/css" href="../vendor/coza/perfect-scrollbar/perfect-scrollbar.css">
-	<link rel="stylesheet" type="text/css" href="../css/coza/util.css">
-	<link rel="stylesheet" type="text/css" href="../css/coza/main.css">
+	<link rel="stylesheet" type="text/css" href="../../../../resources/static/vendor/coza/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../../../../resources/static/fonts/coza/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="../../../../resources/static/fonts/coza/iconic/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" type="text/css" href="../../../../resources/static/fonts/coza/linearicons-v1.0.0/icon-font.min.css">
+	<link rel="stylesheet" type="text/css" href="../../../../resources/static/vendor/coza/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="../../../../resources/static/vendor/coza/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="../../../../resources/static/vendor/coza/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="../../../../resources/static/vendor/coza/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="../../../../resources/static/vendor/coza/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" type="text/css" href="../../../../resources/static/vendor/coza/slick/slick.css">
+	<link rel="stylesheet" type="text/css" href="../../../../resources/static/vendor/coza/MagnificPopup/magnific-popup.css">
+	<link rel="stylesheet" type="text/css" href="../../../../resources/static/vendor/coza/perfect-scrollbar/perfect-scrollbar.css">
+	<link rel="stylesheet" type="text/css" href="../../../../resources/static/css/coza/util.css">
+	<link rel="stylesheet" type="text/css" href="../../../../resources/static/css/coza/main.css">
 	
 	<style>
 		
@@ -552,14 +552,14 @@
 
 	
 <!--===============================================================================================-->	
-	<script src="../vendor/coza/jquery/jquery-3.2.1.min.js"></script>
+	<script src="../../../../resources/static/vendor/coza/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
-	<script src="../vendor/coza/animsition/js/animsition.min.js"></script>
+	<script src="../../../../resources/static/vendor/coza/animsition/js/animsition.min.js"></script>
 <!--===============================================================================================-->
-	<script src="../vendor/coza/bootstrap/js/popper.js"></script>
-	<script src="../vendor/coza/bootstrap/js/bootstrap.min.js"></script>
+	<script src="../../../../resources/static/vendor/coza/bootstrap/js/popper.js"></script>
+	<script src="../../../../resources/static/vendor/coza/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
-	<script src="../vendor/coza/select2/select2.min.js"></script>
+	<script src="../../../../resources/static/vendor/coza/select2/select2.min.js"></script>
 	<script>
 		$(".js-select2").each(function(){
 			$(this).select2({
@@ -569,18 +569,18 @@
 		})
 	</script>
 <!--===============================================================================================-->
-	<script src="../vendor/coza/daterangepicker/moment.min.js"></script>
-	<script src="../vendor/coza/daterangepicker/daterangepicker.js"></script>
+	<script src="../../../../resources/static/vendor/coza/daterangepicker/moment.min.js"></script>
+	<script src="../../../../resources/static/vendor/coza/daterangepicker/daterangepicker.js"></script>
 <!--===============================================================================================-->
-	<script src="../vendor/coza/slick/slick.min.js"></script>
-	<script src="../js/coza/slick-custom.js"></script>
+	<script src="../../../../resources/static/vendor/coza/slick/slick.min.js"></script>
+	<script src="../../../../resources/static/js/coza/slick-custom.js"></script>
 <!--===============================================================================================-->
-	<script src="../vendor/coza/parallax100/parallax100.js"></script>
+	<script src="../../../../resources/static/vendor/coza/parallax100/parallax100.js"></script>
 	<script>
         $('.parallax100').parallax100();
 	</script>
 <!--===============================================================================================-->
-	<script src="../vendor/coza/MagnificPopup/jquery.magnific-popup.min.js"></script>
+	<script src="../../../../resources/static/vendor/coza/MagnificPopup/jquery.magnific-popup.min.js"></script>
 	<script>
 		$('.gallery-lb').each(function() { // the containers for all your galleries
 			$(this).magnificPopup({
@@ -594,11 +594,11 @@
 		});
 	</script>
 <!--===============================================================================================-->
-	<script src="../vendor/coza/isotope/isotope.pkgd.min.js"></script>
+	<script src="../../../../resources/static/vendor/coza/isotope/isotope.pkgd.min.js"></script>
 <!--===============================================================================================-->
-	<script src="../vendor/coza/sweetalert/sweetalert.min.js"></script>
+	<script src="../../../../resources/static/vendor/coza/sweetalert/sweetalert.min.js"></script>
 <!--===============================================================================================-->
-	<script src="../vendor/coza/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+	<script src="../../../../resources/static/vendor/coza/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 	<script>
 		$('.js-pscroll').each(function(){
 			$(this).css('position','relative');
@@ -614,7 +614,7 @@
 		});
 	</script>
 <!--===============================================================================================-->
-	<script src="../js/coza/main.js"></script>
+	<script src="../../../../resources/static/js/coza/main.js"></script>
 	<script>
 	$(function() {
 		var Accordion = function(el, multiple) {
@@ -640,6 +640,6 @@
 	</script>
 <!-- ======question========================================================================================== -->
 	<!-- 자바스크립트  -->
-	<script src="../js/tempjs/question.js"></script>
+	<script src="../../../../resources/static/js/tempjs/question.js"></script>
 </body>
 </html>

@@ -23,7 +23,7 @@
 	<link rel="stylesheet" type="text/css" href="../fonts/coza/font-awesome-4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="../fonts/coza/iconic/css/material-design-iconic-font.min.css">
 	<link rel="stylesheet" type="text/css" href="../fonts/coza/linearicons-v1.0.0/icon-font.min.css">
-	<link rel="stylesheet" type="text/css" href="../vendor/coza/animate/animate.css">	
+	<link rel="stylesheet" type="text/css" href="../vendor/coza/animate/animate.css">
 	<link rel="stylesheet" type="text/css" href="../vendor/coza/css-hamburgers/hamburgers.min.css">
 	<link rel="stylesheet" type="text/css" href="../vendor/coza/animsition/css/animsition.min.css">
 	<link rel="stylesheet" type="text/css" href="../vendor/coza/select2/select2.min.css">
@@ -34,11 +34,15 @@
 	<link rel="stylesheet" type="text/css" href="../css/coza/util.css">
 	<link rel="stylesheet" type="text/css" href="../css/coza/main.css">
 	
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../css/lightpick.css">
-	
 	<style>
+		.form-control{
+			height:30px;
+		}
+		.csisize{
+			height:70px;
+		}
 	</style>
+	
 </head>
 
 <body class="animsition">
@@ -54,27 +58,27 @@
 				<nav class="limiter-menu-desktop container">
 					
 					<!-- Logo desktop -->		
-					<a href="../gxsx/domain.do" class="logo">
+					<a href="/" class="logo">
 						<img src="../images/003-.png" alt="IMG-LOGO">
 					</a>
 
 					<!-- Menu desktop -->
 					<div class="menu-desktop">
 						<ul class="main-menu">
-							<li>
-								<a href="../gxsx/domain.do">Home</a>
+							<li class="active-menu">
+								<a href="/">Home</a>
 							</li>
 
 							<li>
 								<a href="../gxsx/notice.do?cp=1">Notice</a>
 							</li>
 
-							<li class="label1 active-menu" data-label1="습득물">
+							<li class="label1" data-label1="습득물">
 								<a href="../finditem/list.do?cp=1">Finditem</a>
 							</li>
 
 							<li class="label1" data-label1="분실물">
-								<a href="../lostitem/list.do?cp=1">Lostitem</a>
+								<a href="/board/">Lostitem</a>
 							</li>
 							<li>
 								 <a href="../gxsx/contact.do">Contact</a>								 
@@ -87,7 +91,7 @@
 						<ul class="main-menu">					
 							<c:if test="${ empty loginuser && empty klogin}">
 									<li><i class="zmdi zmdi-account-circle"></i>
-										<a href="../gxsx/login.do">Login</a></li>
+										<a href="/login">Login</a></li>
 							</c:if>
 							<c:if test="${ !empty loginuser }">
 								<li class="dropdown">
@@ -157,107 +161,186 @@
 	</header>
 	<!-- ////////////////////////////////////// 맨 위 메뉴 종료 ////////////////////////////////////// -->
 	<!-- *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* -->
-
+     
 	<!-- *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* -->
 	<!-- /////////////////////////////////////// 컨텐츠 시작  /////////////////////////////////////// -->
+	<!-- breadcrumb -->
+	<div class="container">
+		<div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
+			<a href="index.do" class="stext-109 cl8 hov-cl1 trans-04">
+				홈
+				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+			</a>
 
-	<!-- Product -->
-	<section class="bg0 p-t-23 p-b-130">
-		<div class="container">
-			<div class="p-b-10">
-				<h3 class="ltext-103 cl5">
-					F i n d I t e m
-				</h3>
-			</div>
+			<a href="list.do" class="stext-109 cl8 hov-cl1 trans-04">
+				분실물
+				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+			</a>
 
-			<div class="flex-w flex-sb-m p-b-52">
-				<div class="flex-w flex-l-m filter-tope-group m-tb-10"></div>
-
-				<div class="flex-w flex-c-m m-tb-10">
-					<div class="flex-c-m stext-106 cl6 size-104 bor4 pointer hov-btn3 trans-04 m-r-8 m-tb-4 js-show-filter">
-						<i class="icon-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-filter-list"></i>
-						<i class="icon-close-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
-						 Search
-					</div>
-				</div>
-
-				<!-- Filter -->
-				<div class="dis-none panel-filter w-full p-t-10">
-					<div class="wrap-filter flex-w bg6 w-full p-lr-40 p-t-27 p-lr-15-sm">
-						<div class="filter-col1 p-r-15 p-b-27">
-							<div class="mtext-102 cl2 p-b-15">
-								달력
-							</div>
-
-							<div id="examples" class="mt-5">
-	                            <div class="row">
-	                                <div class="col-md-5">
-	                                    <p id="result-2" name="result-2" style="opacity: 0">&nbsp;</p>
-	                                    <input type="text" id="demo-2" class="form-control form-control-sm" autocomplete="off" style="width:250px"/>
-	                                </div>
-	                            </div>
-							</div>
-						</div>
-
-						<div class="filter-col2 p-r-15 p-b-27" style="width: 33%;">
-							<div class="mtext-102 cl2 p-b-15">
-								지역
-							</div>
-							<div class="flex-w p-t-4 m-r--5">
-								<a id="area--1" href="#" onclick="selectArea(this, -1);" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-									전체</a>
-							</div>
-							<div class="flex-w p-t-4 m-r--5">
-								<c:forEach items="${ area }" var="area">
-								<a id="area-${ area.ano }" href="#" onclick="selectArea(this, '${area.ano}');" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-									${ area.acity }</a>
-								</c:forEach>
-							</div>
-						</div>
-
-						<div class="filter-col4 p-b-27" style="width: 40%;">
-							<div class="mtext-102 cl2 p-b-15">
-								종류
-							</div>
-							<div class="flex-w p-t-4 m-r--5">
-								<c:forEach items="${ category }" var="category" varStatus="index">
-									<a id="category-${ index.index }" href="#" onclick="selectTag('${index.index}', this);" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-										${ category.cname }</a>
-								</c:forEach>
-							</div>
-						</div>
-						
-						<div class="w-full">
-							<!-- Search product -->
-							<div class="bor8 dis-flex p-l-15" style="background-color:white" >
-								<button class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04" id="btnsearch" onclick="searchAction(1, true);" type="button">
-									<i class="zmdi zmdi-search"></i>
-								</button>
-								<input class="mtext-107 cl2 size-114 plh2 p-r-15 w-full" type="text" name="query" id="query" value="${ query }" 
-									onkeyup="selectSub();" onkeypress="enterkey()" placeholder="검색" autocomplete="off">
-							</div>
-							</br>
-						</div>
-											
-					</div>					
-				</div>
-			</div>
-			
-		<!-- AJAX-SEARCH -->
-		<div id="changing-list">
+			<span class="stext-109 cl4">
+				글쓰기
+			</span>
 		</div>
-		
-		<a href="../finditem/write2.do" class="cl6 hov-btn3">
-			<div class="flex-c-m stext-106 cl6 size-104 bor4 pointer hov-btn3 trans-04 m-r-8 m-tb-4" 
-				style="width:94px;height:40px;float:right;margin-top:-100px">
-					글쓰기
+	</div>
+	
+	<!-- Content page -->
+	<section class="bg0 p-t-62 p-b-60">
+		<div class="container">
+				<div class="col-md-8 col-lg-9 p-b-80" id="contentchange">
+
+						<div class='m-l-25 m-r--38 m-lr-0-xl fs-12' style='margin-left: 200px'>
+							</br>
+							</br>
+							<div class='table-shopping-cart fs-12'>
+								<div class='card-header'>
+									<h3 class='mb-0'>분실물 글작성</h3>
+								</div>
+								<div class='card-body fs-12'>
+									<form class='form2 fs-12' method='post'  name='input' id='form2' role='form2' enctype='multipart/form-data'
+										autocomplete='off' action='write.do'>
+										<div class='form-group row'>
+											<label for='noinputId'
+												class='col-lg-2 col-form-label form-control-label'>작성자</label>
+											<div class='col-lg-10'>
+												<input type='text' class='form-control fs-12' id='editId'
+													name='louid' value='${loginuser.userid}' readonly='readonly'>
+											</div>
+										</div>
+										
+										<div class='form-group row'>
+											<label for='inputSub'
+												class='col-lg-2 col-form-label form-control-label'>제목</label>
+											<div class='col-lg-10'>
+											<input class='form-control fs-12' type='text' id='editSub'
+													name='losub' value='${user.uemail}' required=''>
+											</div>
+										</div>
+										
+										
+										<div class='form-group row'>
+											<label for='inputDate'
+												class='col-lg-2 col-form-label form-control-label'>날짜</label>
+											<div class='col-lg-10'>
+												
+												<input class='form-control fs-12' type='date' id='editDate'
+													name='lodate'  required=''>
+											</div>
+										</div>
+										
+										<div class='form-group row'>
+											<label for='inputArea'
+												class='col-lg-2 col-form-label form-control-label'>지역</label>
+											<div class='col-lg-3'>
+												<div class="select-box">
+											      <select class="ui fluid dropdown" name="loano" id="ano" onmousedown="if(this.options.length>5){this.size=5;}" onchange='this.size=0;' onblur="this.size=0;">
+											        	   <option value="02">서울</option>
+												           <option value="051">부산</option>
+												           <option value="053">대구</option>
+												           <option value="032">인천</option>
+												           <option value="062">광주</option>
+												           <option value="042">대전</option>
+												           <option value="052">울산</option>
+												           <option value="044">세종</option>
+												           <option value="031">경기</option>
+												           <option value="033">강원</option>
+												           <option value="043">충북</option>
+												           <option value="041">충남</option>
+												           <option value="063">전북</option>
+												           <option value="061">전남</option>
+												           <option value="054">경북</option>
+												           <option value="055">경남</option>
+												           <option value="064">제주</option>
+												           <option value="0">기타</option>
+											      </select>
+											</div>
+											</div>
+											<label for='inputPlace'
+												class='col-lg-2 col-form-label form-control-label' style="text-align:right">분실장소</label>
+											<div class='col-lg-5'>
+												<input class='form-control fs-12' type='text' id='editPlace'
+													name='loplace' required=''>
+											</div>
+										</div>
+										
+										<div class='form-group row'>
+											<label for='inputArea'
+												class='col-lg-2 col-form-label form-control-label'>물품종류</label>
+											<div class='col-lg-3'>
+												<div class="select-box">
+											      <select class="ui fluid dropdown" name="locname" onmousedown="if(this.options.length>5){this.size=5;}" onchange='this.size=0;' onblur="this.size=0;">
+												       <option value="가방">가방</option>
+											           <option value="귀금속">귀금속</option>
+											           <option value="도서용품">도서용품</option>
+											           <option value="서류">서류</option>
+											           <option value="산업용품">산업용품</option>
+											           <option value="핸드폰">핸드폰</option>
+											           <option value="현금">현금</option>
+											           <option value="카드">카드</option>
+											           <option value="노트북">노트북</option>
+											           <option value="악기">악기</option>
+											           <option value="지갑">지갑</option>
+											           <option value="증명서">증명서</option>
+											           <option value="스포츠용품">스포츠용품</option>
+											           <option value="전자기기">전자기기</option>
+											           <option value="자동차">자동차</option>
+											           <option value="의류">의류</option>
+											           <option value="기타">기타</option>
+											      </select>
+											</div>
+											</div>
+											<label for='inputPlace'
+												class='col-lg-2 col-form-label form-control-label' style="text-align:right">보상여부</label>
+											<div class='col-lg-3'>
+												<div class="select-box">
+													<select name="logift" class="ui fluid dropdown" id="giftname" onmousedown="if(this.options.length>5){this.size=5;}" onchange='this.size=0;' onblur="this.size=0;">
+											          	<option value="0">없음</option>
+											          	<option value="1">있음</option>
+											   	  	  </select>
+											   	</div>
+											</div>
+										</div>
+										
+										<div class='form-group row'>
+											<label for='inputPnum'
+												class='col-lg-2 col-form-label form-control-label'>내용</label>
+											<div class='col-lg-10'>
+												<textarea rows="2" class='form-control csisize fs-12' type='text' id='editCon'
+													name='locon' value='${user.upnum}' required=''></textarea>
+											</div>
+										</div>
+										
+										<div id=fileup>
+											<input type="file" name="files" multiple>
+										</div>
+																			
+										</br>
+										<div class='flex-w flex-m m-r-20 m-tb-5'>
+											<div
+												class='flex-c-m stext-101 cl2 size-119 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-5'
+												style='opacity: 0; pointer-events: none'></div>
+											<button
+												class='flex-c-m stext-101 cl2 size-119 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-10'
+												id='submit2' name='submit2' type='submit'>
+												등록</button>
+											&emsp;
+											<button
+												class='flex-c-m stext-101 cl2 size-119 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-10'
+												id='submit3' name='submit3' onclick="location.href='/board/'">
+												취소</button>
+										</div>
+									</form>
+						</div>
+					</div>
+
+
+				</div>
+				
 			</div>
-		</a>
-		
+		</div>
 	</section>
 	<!-- /////////////////////////////////////// 컨텐츠 종료  /////////////////////////////////////// -->
 	<!-- *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* -->
-
+	
 	<!-- *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* -->
 	<!-- ////////////////////////////////////// footer 시작 ////////////////////////////////////// -->
 
@@ -291,7 +374,7 @@
 							</li>
 	
 							<li class="p-b-10">
-								<a href="../lostitem/list.do?cp=1" class="stext-107 cl7 hov-cl1 trans-04">
+								<a href="/board/" class="stext-107 cl7 hov-cl1 trans-04">
 									Lostitem
 								</a>
 							</li>	
@@ -359,7 +442,6 @@
 			</div>
 		</div>
 	</footer>
-	
 	
 	<!-- ////////////////////////////////////// footer 종료 ////////////////////////////////////// -->	
 	<!-- *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* -->
@@ -576,23 +658,30 @@
 		$('.js-addwish-b2').on('click', function(e){
 			e.preventDefault();
 		});
+
 		$('.js-addwish-b2').each(function(){
 			var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
 			$(this).on('click', function(){
 				swal(nameProduct, "is added to wishlist !", "success");
+
 				$(this).addClass('js-addedwish-b2');
 				$(this).off('click');
 			});
 		});
+
 		$('.js-addwish-detail').each(function(){
 			var nameProduct = $(this).parent().parent().parent().find('.js-name-detail').html();
+
 			$(this).on('click', function(){
 				swal(nameProduct, "is added to wishlist !", "success");
+
 				$(this).addClass('js-addedwish-detail');
 				$(this).off('click');
 			});
 		});
+
 		/*---------------------------------------------*/
+
 		$('.js-addcart-detail').each(function(){
 			var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
 			$(this).on('click', function(){
@@ -611,6 +700,7 @@
 				scrollingThreshold: 1000,
 				wheelPropagation: false,
 			});
+
 			$(window).on('resize', function(){
 				ps.update();
 			})
@@ -618,21 +708,9 @@
 	</script>
 <!--===============================================================================================-->
 	<script src="../js/coza/main.js"></script>
- 	<script async src="https://buttons.github.io/buttons.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-    <script src="https://unpkg.com/lightpick@latest/lightpick.js"></script>
-    <script src="../js/demo.js"></script>
-    <script src="../js/search.js"></script>
-    <script>
-    	searchAction(1, true);
-    </script>
-    <script>
-		function enterkey() { 
-		  		if (window.event.keyCode == 13) { 
-		  			searchAction(1, true);
-		   	} 
-		}
-		
-	</script>
+	
+	<!-- 자바스크립트  -->
+	<script src="../js/tempjs/FiComments.js"></script>
+
 </body>
 </html>

@@ -23,7 +23,7 @@
 	<link rel="stylesheet" type="text/css" href="../fonts/coza/font-awesome-4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="../fonts/coza/iconic/css/material-design-iconic-font.min.css">
 	<link rel="stylesheet" type="text/css" href="../fonts/coza/linearicons-v1.0.0/icon-font.min.css">
-	<link rel="stylesheet" type="text/css" href="../vendor/coza/animate/animate.css">	
+	<link rel="stylesheet" type="text/css" href="../vendor/coza/animate/animate.css">
 	<link rel="stylesheet" type="text/css" href="../vendor/coza/css-hamburgers/hamburgers.min.css">
 	<link rel="stylesheet" type="text/css" href="../vendor/coza/animsition/css/animsition.min.css">
 	<link rel="stylesheet" type="text/css" href="../vendor/coza/select2/select2.min.css">
@@ -35,12 +35,6 @@
 	<link rel="stylesheet" type="text/css" href="../css/coza/main.css">
 	
 	<style>
-		.form-control{
-			height:30px;
-		}
-		.csisize{
-			height:70px;
-		}
 	</style>
 	
 </head>
@@ -168,173 +162,259 @@
 	<div class="container">
 		<div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
 			<a href="index.do" class="stext-109 cl8 hov-cl1 trans-04">
-				Home
+				홈
 				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
 			</a>
 
 			<a href="list.do" class="stext-109 cl8 hov-cl1 trans-04">
-				Finditem
+				분실물
 				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
 			</a>
 
 			<span class="stext-109 cl4">
-				write
+				${locontent[0].losub}
 			</span>
 		</div>
 	</div>
 	
-	<!-- Content page -->
-	<section class="bg0 p-t-62 p-b-60">
+	<!-- Product Detail -->
+	<section class="sec-product-detail bg0 p-t-65 p-b-60">
 		<div class="container">
-				<div class="col-md-8 col-lg-9 p-b-80" id="contentchange">
+			<div class="row">
+				<div class="col-md-6 col-lg-7 p-b-30">
+					<div class="p-l-25 p-r-30 p-lr-0-lg">
+						<div class="wrap-slick3 flex-sb flex-w">
+							<div class="wrap-slick3-dots"></div>
+							<div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
 
-						<div class='m-l-25 m-r--38 m-lr-0-xl fs-12' style='margin-left: 200px'>
-							</br>
-							</br>
-							<div class='table-shopping-cart fs-12'>
-								<div class='card-header'>
-									<h3 class='mb-0'>분실물 수정</h3>
+							<div class="slick3 gallery-lb">
+							<c:forEach items="${locontent}" var="locontent">
+								<div class="item-slick3" data-thumb="../images/Lostimgs/${locontent.lopicname }">
+									<div class="wrap-pic-w pos-relative">
+										<img src="../images/Lostimgs/${locontent.lopicname }" alt="IMG-PRODUCT">
+
+										<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-01.jpg">
+											<i class="fa fa-expand"></i>
+										</a>
+									</div>
 								</div>
-								<div class='card-body fs-12'>
-									<form class='form2 fs-12' method='post'  name='input' id='form2' role='form2' enctype='multipart/form-data'
-										autocomplete='off' action='update.do'>
-										
-										<input type="hidden" name="lono" value="${updatef[0].lono}">
-										
-										
-										<div class='form-group row'>
-											<label for='noinputId'
-												class='col-lg-2 col-form-label form-control-label'>아이디</label>
-											<div class='col-lg-10'>
-												<input type='text' class='form-control fs-12' id='editId'
-													name='userid' value='${loginuser.userid}' readonly='readonly'>
-											</div>
-										</div>
-										
-										<div class='form-group row'>
-											<label for='inputSub'
-												class='col-lg-2 col-form-label form-control-label'>제목</label>
-											<div class='col-lg-10'>
-											<input class='form-control fs-12' type='text' id='editSub'
-													name='losub' value='${updatef[0].losub}' required=''>
-											</div>
-										</div>
-										
-										
-										<div class='form-group row'>
-											<label for='inputDate'
-												class='col-lg-2 col-form-label form-control-label'>날짜</label>
-											<div class='col-lg-10'>
-												
-												<input class='form-control fs-12' type='date' id='editDate'
-													name='lodate' value='${user.uemail}' required=''>
-											</div>
-										</div>
-										
-										<div class='form-group row'>
-											<label for='inputArea'
-												class='col-lg-2 col-form-label form-control-label'>지역</label>
-											<div class='col-lg-3'>
-											      <select class="ui fluid dropdown" name="loano" id="ano">
-											        	   <option <c:if test="${(updatef[0].loano) == 02}">selected='selected'</c:if> value="02">서울</option>
-												        	<option <c:if test="${(updatef[0].loano) == 051}">selected='selected'</c:if> value="051">부산</option>
-												        	<option <c:if test="${(updatef[0].loano) == 053}">selected='selected'</c:if> value="053">대구</option>
-												        	<option <c:if test="${(updatef[0].loano) == 032}">selected='selected'</c:if> value="032">인천</option>
-												        	<option <c:if test="${(updatef[0].loano) == 062}">selected='selected'</c:if> value="062">광주</option>
-												        	<option <c:if test="${(updatef[0].loano) == 042}">selected='selected'</c:if> value="042">대전</option>
-												      		<option <c:if test="${(updatef[0].loano) == 052}">selected='selected'</c:if> value="052">울산</option>
-												        	<option <c:if test="${(updatef[0].loano) == 044}">selected='selected'</c:if> value="044">세종</option>
-												        	<option <c:if test="${(updatef[0].loano) == 031}">selected='selected'</c:if> value="031">경기</option>
-												        	<option <c:if test="${(updatef[0].loano) == 033}">selected='selected'</c:if> value="033">강원</option>
-												        	<option <c:if test="${(updatef[0].loano) == 043}">selected='selected'</c:if> value="043">충북</option>
-												        	<option <c:if test="${(updatef[0].loano) == 041}">selected='selected'</c:if> value="041">충남</option>
-												        	<option <c:if test="${(updatef[0].loano) == 063}">selected='selected'</c:if> value="063">전북</option>
-												        	<option <c:if test="${(updatef[0].loano) == 061}">selected='selected'</c:if> value="061">전남</option>
-												        	<option <c:if test="${(updatef[0].loano) == 054}">selected='selected'</c:if> value="054">경북</option>
-												        	<option <c:if test="${(updatef[0].loano) == 055}">selected='selected'</c:if> value="055">경남</option>
-												        	<option <c:if test="${(updatef[0].loano) == 064}">selected='selected'</c:if> value="064">제주</option>
-												        	<option <c:if test="${(updatef[0].loano) == 0}">selected='selected'</c:if> value="0">기타</option>
-											      </select>
-											</div>
-											<label for='inputPlace'
-												class='col-lg-2 col-form-label form-control-label' style="text-align:right">분실장소</label>
-											<div class='col-lg-5'>
-												<input class='form-control fs-12' type='text' id='editPlace'
-													name='loplace' value='${updatef[0].loplace}' required=''>
-											</div>
-										</div>
-										
-										<div class='form-group row'>
-											<label for='inputArea'
-												class='col-lg-2 col-form-label form-control-label'>물품종류</label>
-											<div class='col-lg-3'>
-											      <select class="ui fluid dropdown" name="locname">
-											        	<option <c:if test="${(updatef[0].locname) == '가방'}">selected='selected'</c:if> value="가방">가방</option>
-														<option <c:if test="${(updatef[0].locname) == '귀금속'}">selected='selected'</c:if> value="귀금속">귀금속</option>
-														<option <c:if test="${(updatef[0].locname) == '도서용품'}">selected='selected'</c:if> value="도서용품">도서용품</option>
-														<option <c:if test="${(updatef[0].locname) == '서류'}">selected='selected'</c:if> value="서류">서류</option>
-														<option <c:if test="${(updatef[0].locname) == '산업용품'}">selected='selected'</c:if> value="산업용품">산업용품</option>
-														<option <c:if test="${(updatef[0].locname) == '핸드폰'}">selected='selected'</c:if> value="핸드폰">핸드폰</option>
-														<option <c:if test="${(updatef[0].locname) == '현금'}">selected='selected'</c:if> value="현금">현금</option>
-														<option <c:if test="${(updatef[0].locname) == '카드'}">selected='selected'</c:if> value="카드">카드</option>
-														<option <c:if test="${(updatef[0].locname) == '노트북'}">selected='selected'</c:if> value="노트북">노트북</option>
-														<option <c:if test="${(updatef[0].locname) == '악기'}">selected='selected'</c:if> value="악기">악기</option>
-														<option <c:if test="${(updatef[0].locname) == '지갑'}">selected='selected'</c:if> value="지갑">지갑</option>
-														<option <c:if test="${(updatef[0].locname) == '증명서'}">selected='selected'</c:if> value="증명서">증명서</option>
-														<option <c:if test="${(updatef[0].locname) == '스포츠용품'}">selected='selected'</c:if> value="스포츠용품">스포츠용품</option>
-														<option <c:if test="${(updatef[0].locname) == '전자기기'}">selected='selected'</c:if> value="전자기기">전자기기</option>
-														<option <c:if test="${(updatef[0].locname) == '자동차'}">selected='selected'</c:if> value="자동차">자동차</option>
-														<option <c:if test="${(updatef[0].locname) == '의류'}">selected='selected'</c:if> value="의류">의류</option>
-														<option <c:if test="${(updatef[0].locname) == '기타'}">selected='selected'</c:if> value="기타">기타</option>
-											      </select>
-											</div>
-											<label for='inputPlace'
-												class='col-lg-2 col-form-label form-control-label' style="text-align:right">보상여부</label>
-											<div class='col-lg-5'>
-												<div class="select-box">
-													<select name="logift" class="ui fluid dropdown" id="giftname">
-											          	<option value="0">없음</option>
-											          	<option value="1">있음</option>
-											   	  	</select>
-											   	</div>
-											</div>
-										</div>
-										
-										<div class='form-group row'>
-											<label for='inputPnum'
-												class='col-lg-2 col-form-label form-control-label'>내용</label>
-											<div class='col-lg-10'>
-												<textarea rows="2" class='form-control csisize fs-12' type='text' id='editCon'
-													name='locon' value='${updatef[0].locon}' required=''></textarea>
-											</div>
-										</div>
-										
-<!-- 										<div id=fileup> -->
-<!-- 											<input type="file" name="files" multiple> -->
-<!-- 										</div> -->
-																			
-										</br>
-										<div class='flex-w flex-m m-r-20 m-tb-5'>
-											<div
-												class='flex-c-m stext-101 cl2 size-119 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-5'
-												style='opacity: 0; pointer-events: none'></div>
-											<button
-												class='flex-c-m stext-101 cl2 size-119 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-10'
-												id='submit2' name='submit2' type='submit'>
-												수정</button>
-											&emsp;
-											<div
-												class='flex-c-m stext-101 cl2 size-119 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-10'
-												id='submit3' name='submit3' onclick="location.href='list.do'">
-												취소</div>
-										</div>
-									</form>
+							</c:forEach>
+							
+							</div>
 						</div>
 					</div>
+				</div>
+					
+				<div class="col-md-6 col-lg-5 p-b-30">
+					<div class="p-r-50 p-t-5 p-lr-0-lg">
+						<h4 class="mtext-105 cl2 js-name-detail p-b-14">
+							${locontent[0].losub}
+						</h4>
+						<ul class="p-lr-28 p-lr-15-sm">
+							<li class="flex-w flex-t p-b-7">
+								<span class="stext-102 cl3 size-205">
+									날짜
+								</span>
 
+								<span class="stext-102 cl6 size-206">
+									${locontent[0].lodate}
+								</span>
+							</li>
+
+							<li class="flex-w flex-t p-b-7">
+								<span class="stext-102 cl3 size-205">
+									분실장소
+								</span>
+
+								<span class="stext-102 cl6 size-206">
+									${area} / ${locontent[0].loplace}
+								</span>
+							</li>
+
+							<li class="flex-w flex-t p-b-7">
+								<span class="stext-102 cl3 size-205">
+									보상여부
+								</span>
+
+								<span class="stext-102 cl6 size-206">
+									<c:if test="${locontent[0].logift==0}">
+										<span class="stext-102 cl6 size-206">
+											없음
+										</span>
+									</c:if>
+									<c:if test="${locontent[0].logift==1}">
+										<span class="stext-102 cl6 size-206">
+											있음
+										</span>
+									</c:if>
+								</span>
+							</li>
+
+							<li class="flex-w flex-t p-b-7">
+								<span class="stext-102 cl3 size-205">
+									글내용
+								</span>
+
+								<span class="stext-102 cl6 size-206">
+								<div style="word-break:break-all">
+									${locontent[0].locon}
+								</span></div>
+							</li>
+						</ul>
+						
+						<!-- botton -->
+						<div class="p-t-33">
+							<div class="flex-w flex-r-m p-b-10">
+								<c:if test="${(userid eq locontent[0].louid) && !userid.equals('sansillyung')}">
+									<a href="../lostitem/updatef.do?lono=${locontent[0].lono}"><button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04" >
+										수정
+									</button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								</c:if>
+								<c:if test="${userid eq locontent[0].louid}">
+									<a href="../lostitem/del.do?lono=${locontent[0].lono}"><button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+										삭제
+									</button></a>
+								</c:if>
+								<c:if test="${userid.equals('sansillyung')}">
+									<a href="../lostitem/del.do?lono=${locontent[0].lono}"><button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+										삭제
+									</button></a>
+								</c:if>
+							</div>	
+						</div>
+						
+					</div>
+				</div>
+			</div>
+
+			<div class="bor10 m-t-50 p-t-43 p-b-40">
+				<!-- Tab01 -->
+				<div class="tab01">
+					<!-- Nav tabs -->
+					<ul class="nav nav-tabs" role="tablist">
+						<li class="nav-item p-b-10">
+							<a id="comment_toggle" class="nav-link active" data-toggle="tab" href="#description" role="tab">Comment (0)</a>
+						</li>
+					</ul>
+
+					<!-- Tab panes -->
+					<div class="tab-content p-t-43">
+						<!-- - -->
+						<div class="tab-pane fade show active" id="description" role="tabpanel">
+							<div class="how-pos2 p-lr-15-md">
+								<div class="flex-w flex-t p-b-68" id="lost_comment_list">
+									<c:forEach var="comment" items="${comment}" varStatus="status">
+										<c:if test="${comment.depth==0}">
+				  							<div class="size-207" id="locomment_${comment.comno}">
+												<div class="flex-w flex-sb-m p-b-17" style="justify-content: unset">
+													<span class="mtext-107 cl2 p-r-20">
+														${comment.userid} 
+														<span class="stext-102 cl6">&nbsp;
+															${comment.codate} </span>
+													</span>
+		
+													<span class="fs-18 cl11">
+														<a href="#" class="stext-109 cl8 hov-cl1 trans-04">reply</a>
+													</span>
+												</div>
+		
+												<p class="stext-102 cl6">
+													${comment.contents}
+												</p>
+												</br>
+											</div>
+			  							</c:if>
+			  							<c:if test="${comment.depth!=0 && !empty comment.pcom}">
+				  							<div class="size-207" id="locomment_${comment.comno}" style="margin-left:100px">
+												<div class="flex-w flex-sb-m p-b-17" style="justify-content: unset">
+													<span class="mtext-107 cl2 p-r-20">
+														${comment.userid} 
+														<span class="stext-102 cl6">&nbsp;
+															${comment.codate} </span>
+													</span>
+		
+													<span class="fs-18 cl11">
+<!-- 														<a href="#" class="stext-109 cl8 hov-cl1 trans-04">reply</a> -->
+														<a href="#" class="stext-109 cl8 hov-cl1 trans-04"><i class="zmdi zmdi-mail-reply"></i></a>
+													</span>
+												</div>
+		
+												<p class="stext-102 cl6">
+													${comment.contents}
+												</p>
+												</br>
+											</div>
+			  							</c:if>
+										
+									</c:forEach>
+									
+								</div>
+								
+								<!-- Add review -->
+								<form class="w-full">
+									
+									<div class="row p-b-25">
+										<div class="col-12 p-b-5">
+										<label id="reply_to"></label>
+											<label class="stext-102 cl3" for="review">댓글 작성</label>
+											<textarea class="size-110 bor8 stext-102 cl2 p-lr-20 p-tb-10" id="review" name="review"></textarea>
+										</div>
+									</div>
+									<button class="flex-c-m stext-101 cl0 size-112 bg7 bor11 hov-btn3 p-lr-15 trans-04 m-b-10"
+											type="button" onclick="commentInsert('${locontent[0].lono}');">
+										등록
+									</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="bg6 flex-c-m flex-w size-302 m-t-73 p-tb-15">
+			
+		</div>
+	</section>
+
+
+	<!-- Related Products -->
+	<section class="sec-relate-product bg0 p-t-45 p-b-105">
+		<div class="container">
+			<div class="p-b-45">
+				<h3 class="ltext-106 cl5 txt-center">
+					<img src="../images/최근게시물.png">
+				</h3>
+			</div>
+
+			<!-- Slide2 -->
+			<div class="wrap-slick2">
+				<div class="slick2">
+					<c:forEach var="related" items="${related}" varStatus="status">
+						<div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
+							<!-- Block2 -->
+							<div class="block2">
+								<div class="block2-pic hov-img0">
+									<a href="../lostitem/locontent.do?lono=${related.lono}" >
+									<img src="../images/Lostimgs/${related.lopicname}" alt="IMG-PRODUCT"></a>
+								</div>
+	
+								<div class="block2-txt flex-w flex-t p-t-14">
+									<div class="block2-txt-child1 flex-col-l ">
+										<a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+											${related.lodate}
+										</a>
+	
+										<span class="stext-105 cl3">
+											<a href="../lostitem/locontent.do?lono=${related.lono}" class="cl3" >${related.losub}</a>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</c:forEach>
 
 				</div>
-				
 			</div>
 		</div>
 	</section>
@@ -453,6 +533,162 @@
 			<i class="zmdi zmdi-chevron-up"></i>
 		</span>
 	</div>
+
+	<!-- Modal1 -->
+	<div class="wrap-modal1 js-modal1 p-t-60 p-b-20">
+		<div class="overlay-modal1 js-hide-modal1"></div>
+
+		<div class="container">
+			<div class="bg0 p-t-60 p-b-30 p-lr-15-lg how-pos3-parent">
+				<button class="how-pos3 hov3 trans-04 js-hide-modal1">
+					<img src="images/icons/icon-close.png" alt="CLOSE">
+				</button>
+
+				<div class="row">
+					<div class="col-md-6 col-lg-7 p-b-30">
+						<div class="p-l-25 p-r-30 p-lr-0-lg">
+							<div class="wrap-slick3 flex-sb flex-w">
+								<div class="wrap-slick3-dots"></div>
+								<div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
+
+								<div class="slick3 gallery-lb">
+								<c:forEach items="${locontent}" var="locontent">
+									<div class="item-slick3" data-thumb="../images/Lostimgs/${locontent.lopicname }">
+										<div class="wrap-pic-w pos-relative">
+											<img src="../images/Lostimgs/${locontent.lopicname}" alt="IMG-PRODUCT">
+
+											<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-01.jpg">
+												<i class="fa fa-expand"></i>
+											</a>
+										</div>
+									</div>
+									</c:forEach>
+
+<!-- 									<div class="item-slick3" data-thumb="images/product-detail-02.jpg"> -->
+<!-- 										<div class="wrap-pic-w pos-relative"> -->
+<!-- 											<img src="../images/coza/product-detail-02.jpg" alt="IMG-PRODUCT"> -->
+
+<!-- 											<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-02.jpg"> -->
+<!-- 												<i class="fa fa-expand"></i> -->
+<!-- 											</a> -->
+<!-- 										</div> -->
+<!-- 									</div> -->
+
+<!-- 									<div class="item-slick3" data-thumb="images/product-detail-03.jpg"> -->
+<!-- 										<div class="wrap-pic-w pos-relative"> -->
+<!-- 											<img src="../images/coza/product-detail-03.jpg" alt="IMG-PRODUCT"> -->
+
+<!-- 											<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-03.jpg"> -->
+<!-- 												<i class="fa fa-expand"></i> -->
+<!-- 											</a> -->
+<!-- 										</div> -->
+<!-- 									</div> -->
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-md-6 col-lg-5 p-b-30">
+						<div class="p-r-50 p-t-5 p-lr-0-lg">
+							<h4 class="mtext-105 cl2 js-name-detail p-b-14">
+								Lightweight Jacket
+							</h4>
+
+							<span class="mtext-106 cl2">
+								$58.79
+							</span>
+
+							<p class="stext-102 cl3 p-t-23">
+								Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare feugiat.
+							</p>
+							
+							<!--  -->
+							<div class="p-t-33">
+								<div class="flex-w flex-r-m p-b-10">
+									<div class="size-203 flex-c-m respon6">
+										Size
+									</div>
+
+									<div class="size-204 respon6-next">
+										<div class="rs1-select2 bor8 bg0">
+											<select class="js-select2" name="time">
+												<option>Choose an option</option>
+												<option>Size S</option>
+												<option>Size M</option>
+												<option>Size L</option>
+												<option>Size XL</option>
+											</select>
+											<div class="dropDownSelect2"></div>
+										</div>
+									</div>
+								</div>
+
+								<div class="flex-w flex-r-m p-b-10">
+									<div class="size-203 flex-c-m respon6">
+										Color
+									</div>
+
+									<div class="size-204 respon6-next">
+										<div class="rs1-select2 bor8 bg0">
+											<select class="js-select2" name="time">
+												<option>Choose an option</option>
+												<option>Red</option>
+												<option>Blue</option>
+												<option>White</option>
+												<option>Grey</option>
+											</select>
+											<div class="dropDownSelect2"></div>
+										</div>
+									</div>
+								</div>
+
+								<div class="flex-w flex-r-m p-b-10">
+									<div class="size-204 flex-w flex-m respon6-next">
+										<div class="wrap-num-product flex-w m-r-20 m-tb-10">
+											<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
+												<i class="fs-16 zmdi zmdi-minus"></i>
+											</div>
+
+											<input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product" value="1">
+
+											<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
+												<i class="fs-16 zmdi zmdi-plus"></i>
+											</div>
+										</div>
+
+										<button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
+											Add to cart
+										</button>
+									</div>
+								</div>	
+							</div>
+
+							<!--  -->
+							<div class="flex-w flex-m p-l-100 p-t-40 respon7">
+								<div class="flex-m bor9 p-r-10 m-r-11">
+									<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail tooltip100" data-tooltip="Add to Wishlist">
+										<i class="zmdi zmdi-favorite"></i>
+									</a>
+								</div>
+
+								<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Facebook">
+									<i class="fa fa-facebook"></i>
+								</a>
+
+								<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Twitter">
+									<i class="fa fa-twitter"></i>
+								</a>
+
+								<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Google Plus">
+									<i class="fa fa-google-plus"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	
 <!--===============================================================================================-->	
 	<script src="../vendor/coza/jquery/jquery-3.2.1.min.js"></script>
@@ -462,7 +698,7 @@
 	<script src="../vendor/coza/bootstrap/js/popper.js"></script>
 	<script src="../vendor/coza/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
-	<script src="../vendor/coza/select2/select2.min.js"></script>
+	<script src="../coza/select2/select2.min.js"></script>
 	<script>
 		$(".js-select2").each(function(){
 			$(this).select2({
@@ -556,7 +792,9 @@
 	<script src="../js/coza/main.js"></script>
 	
 	<!-- 자바스크립트  -->
-	<script src="../js/tempjs/FiComments.js"></script>
-
+	<script src="../js/tempjs/LoComments.js"></script>
+	<script>
+		commentList("${ locontent[0].lono }");
+	</script>
 </body>
 </html>

@@ -9,12 +9,12 @@
 		<link rel="icon" type="image/png" href="../images/icons/favicon.ico"/>
 	
 	<!--===============================================================================================-->
-		<link rel="stylesheet" type="text/css" href="../css/util.css">
-		<link rel="stylesheet" type="text/css" href="../css/main.css">
+		<link rel="stylesheet" type="text/css" href="../../../../resources/static/css/util.css">
+		<link rel="stylesheet" type="text/css" href="../../../../resources/static/css/main.css">
 	<!--===============================================================================================-->
 		<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
-		<link rel="stylesheet" href="../css/signupmain.css">
+		<link rel="stylesheet" href="../../../../resources/static/css/signupmain.css">
 <!--==============================================================================================-->
 
 	 <script type="text/javascript">
@@ -189,16 +189,16 @@
 		</div>
 
 	<!--===============================================================================================-->	
-		<script src="../vendor/jquery/jquery-3.2.1.min.js"></script>
+		<script src="../../../../resources/static/vendor/jquery/jquery-3.2.1.min.js"></script>
 	<!--===============================================================================================-->
-		<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+		<script src="../../../../resources/static/vendor/bootstrap/js/bootstrap.min.js"></script>
 	<!--===============================================================================================-->
-		<script src="../vendor/select2/select2.min.js"></script>
+		<script src="../../../../resources/static/vendor/select2/select2.min.js"></script>
 	<!--===============================================================================================-->
-		<script src="../js/main.js"></script>
+		<script src="../../../../resources/static/js/main.js"></script>
         
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		<script src="../js/bvalidator.jquery.js"></script>
+		<script src="../../../../resources/static/js/bvalidator.jquery.js"></script>
 	
         <script type="text/javascript">
 			$(function(){
@@ -245,6 +245,6 @@
 
 		</script>
 		
-		<script src="../js/bootstrap.min.js"></script>
+		<script src="../../../../resources/static/js/bootstrap.min.js"></script>
 	</body>
 </html>
