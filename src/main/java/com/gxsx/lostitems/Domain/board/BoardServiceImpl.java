@@ -3,10 +3,10 @@ package com.gxsx.lostitems.Domain.board;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
-
 public class BoardServiceImpl implements BoardService{
 
     @Autowired
@@ -14,6 +14,8 @@ public class BoardServiceImpl implements BoardService{
 
     @Override
     public List<Board> findAll() {
+        List<Board> boardList = boardRepository.findAll();
+
         return boardRepository.findAll();
     }
 
@@ -24,8 +26,10 @@ public class BoardServiceImpl implements BoardService{
     }
 
     @Override
-    public void createBoard(Board board) {
-        boardRepository.save(board);
+    @Transactional
+    public Long write(Board board) {
+
+        return boardRepository.save(board).getBoard_seq();
     }
 
 

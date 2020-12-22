@@ -52,7 +52,7 @@
 				<nav class="limiter-menu-desktop container">
 					
 					<!-- Logo desktop -->		
-					<a href="../gxsx/domain.do" class="logo">
+					<a href="/" class="logo">
 						<img src="../images/003-.png" alt="IMG-LOGO">
 					</a>
 
@@ -60,7 +60,7 @@
 					<div class="menu-desktop">
 						<ul class="main-menu">
 							<li class="active-menu">
-								<a href="../gxsx/domain.do">Home</a>
+								<a href="/">Home</a>
 							</li>
 
 							<li>
@@ -72,7 +72,7 @@
 							</li>
 
 							<li class="label1" data-label1="분실물">
-								<a href="../lostitem/list.do?cp=1">Lostitem</a>
+								<a href="/board/">Lostitem</a>
 							</li>
 							<li>
 								 <a href="../gxsx/contact.do">Contact</a>								 
@@ -258,7 +258,7 @@
 								<span class="stext-102 cl6 size-206">
 								<div style="word-break:break-all">
 									${locontent[0].locon}
-								</span></div>
+								</div></span>
 							</li>
 						</ul>
 						

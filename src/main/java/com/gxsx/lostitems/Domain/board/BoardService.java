@@ -13,6 +13,6 @@ public interface BoardService {
 
     Board findById(long board_seq);
 
-    void createBoard(Board board);
+    Long write(Board board);
 
 }

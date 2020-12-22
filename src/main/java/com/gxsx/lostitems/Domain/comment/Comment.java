@@ -16,6 +16,7 @@ import java.util.Date;
 @Table(name = "comment")
 public class Comment {
     @Id
+    @GeneratedValue
     @Column(nullable = false)
     private Long comment_seq;
     @JsonIgnore

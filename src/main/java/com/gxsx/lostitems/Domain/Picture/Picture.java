@@ -4,10 +4,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
@@ -15,6 +12,7 @@ import javax.persistence.Table;
 @Table(name = "picture")
 public class Picture {
     @Id
+    @GeneratedValue
     @Column(nullable = false)
     private Long picture_seq;
     @Column(nullable = false)

@@ -196,14 +196,14 @@
 									<h3 class='mb-0'>분실물 글작성</h3>
 								</div>
 								<div class='card-body fs-12'>
-									<form class='form2 fs-12' method='post'  name='input' id='form2' role='form2' enctype='multipart/form-data'
-										autocomplete='off' action='write.do'>
+									<form class='form2 fs-12' method='post'  name='write' id='form2' role='form2' enctype='multipart/form-data'
+										autocomplete='off' action='write'>
 										<div class='form-group row'>
 											<label for='noinputId'
 												class='col-lg-2 col-form-label form-control-label'>작성자</label>
 											<div class='col-lg-10'>
 												<input type='text' class='form-control fs-12' id='editId'
-													name='louid' value='${loginuser.userid}' readonly='readonly'>
+													name='userid' value='${board.userid}'>
 											</div>
 										</div>
 										
@@ -212,7 +212,7 @@
 												class='col-lg-2 col-form-label form-control-label'>제목</label>
 											<div class='col-lg-10'>
 											<input class='form-control fs-12' type='text' id='editSub'
-													name='losub' value='${user.uemail}' required=''>
+													name='board_sub' value='${board.board_sub}' required=''>
 											</div>
 										</div>
 										
@@ -222,8 +222,8 @@
 												class='col-lg-2 col-form-label form-control-label'>날짜</label>
 											<div class='col-lg-10'>
 												
-												<input class='form-control fs-12' type='date' id='editDate'
-													name='lodate'  required=''>
+												<input class='form-control fs-12' type='date' id='editDate',value='${board.date}'
+													name='date'  required=''>
 											</div>
 										</div>
 										
@@ -232,7 +232,7 @@
 												class='col-lg-2 col-form-label form-control-label'>지역</label>
 											<div class='col-lg-3'>
 												<div class="select-box">
-											      <select class="ui fluid dropdown" name="loano" id="ano" onmousedown="if(this.options.length>5){this.size=5;}" onchange='this.size=0;' onblur="this.size=0;">
+											      <select class="ui fluid dropdown" name="ano" id="ano" onmousedown="if(this.options.length>5){this.size=5;}" onchange='this.size=0;' onblur="this.size=0;">
 											        	   <option value="02">서울</option>
 												           <option value="051">부산</option>
 												           <option value="053">대구</option>
@@ -258,7 +258,7 @@
 												class='col-lg-2 col-form-label form-control-label' style="text-align:right">분실장소</label>
 											<div class='col-lg-5'>
 												<input class='form-control fs-12' type='text' id='editPlace'
-													name='loplace' required=''>
+													name='place' required=''>
 											</div>
 										</div>
 										
@@ -267,7 +267,7 @@
 												class='col-lg-2 col-form-label form-control-label'>물품종류</label>
 											<div class='col-lg-3'>
 												<div class="select-box">
-											      <select class="ui fluid dropdown" name="locname" onmousedown="if(this.options.length>5){this.size=5;}" onchange='this.size=0;' onblur="this.size=0;">
+											      <select class="ui fluid dropdown" name="category",value='${board.category}', onmousedown="if(this.options.length>5){this.size=5;}" onchange='this.size=0;' onblur="this.size=0;">
 												       <option value="가방">가방</option>
 											           <option value="귀금속">귀금속</option>
 											           <option value="도서용품">도서용품</option>
@@ -292,7 +292,7 @@
 												class='col-lg-2 col-form-label form-control-label' style="text-align:right">보상여부</label>
 											<div class='col-lg-3'>
 												<div class="select-box">
-													<select name="logift" class="ui fluid dropdown" id="giftname" onmousedown="if(this.options.length>5){this.size=5;}" onchange='this.size=0;' onblur="this.size=0;">
+													<select name="board_group" class="ui fluid dropdown" id="board_group" onmousedown="if(this.options.length>5){this.size=5;}" onchange='this.size=0;' onblur="this.size=0;">
 											          	<option value="0">없음</option>
 											          	<option value="1">있음</option>
 											   	  	  </select>
@@ -305,7 +305,7 @@
 												class='col-lg-2 col-form-label form-control-label'>내용</label>
 											<div class='col-lg-10'>
 												<textarea rows="2" class='form-control csisize fs-12' type='text' id='editCon'
-													name='locon' value='${user.upnum}' required=''></textarea>
+													name='content' value='${board.content}' required=''></textarea>
 											</div>
 										</div>
 										
