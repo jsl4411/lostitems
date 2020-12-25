@@ -86,7 +86,7 @@
 						<ul class="main-menu">					
 							<c:if test="${ empty loginuser && empty klogin}">
 									<li><i class="zmdi zmdi-account-circle"></i>
-										<a href="/login">Login</a></li>
+										<a href="/user/login">Login</a></li>
 							</c:if>
 							<c:if test="${ !empty loginuser }">
 								<li class="dropdown">

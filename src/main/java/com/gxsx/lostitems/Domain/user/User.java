@@ -7,20 +7,23 @@ import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import net.bytebuddy.asm.Advice;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor
 @Getter
 @Entity
 @Table(name ="user")
 @Data
 public class User {
     @Id
-    @Column(name = "userid",length = 30,nullable = false)
-    private String id;
+    @Column(length = 30,nullable = false)
+    private String userid;
 
     @Column(length = 30, nullable = false)
     private String pwd;
@@ -33,9 +36,10 @@ public class User {
 
     @Column(length = 30, nullable = false)
     private String phone;
-    @JsonIgnore
-    @OneToMany(mappedBy = "user",targetEntity = Board.class)
+
+    @OneToMany(mappedBy = "user",targetEntity = Board.class,fetch = FetchType.LAZY)
     private List<Board> boards = new ArrayList<Board>();
-    @OneToMany(mappedBy = "user",targetEntity = Comment.class)
+
+    @OneToMany(mappedBy = "user",targetEntity = Comment.class,fetch = FetchType.LAZY)
     private List<Comment> comments = new ArrayList<Comment>();
 }

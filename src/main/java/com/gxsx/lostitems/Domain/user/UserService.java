@@ -4,5 +4,8 @@ import java.util.List;
 
 public interface UserService {
 
-    List<User> findAll();
+   String findUserByUserid(User user);
+
+   String createUser(User user);
+
 }

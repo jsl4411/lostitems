@@ -7,24 +7,25 @@ import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor
 @Getter
 @Entity
 @Data
 @Table(name = "board")
 public class Board {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(nullable = false)
     private Long board_seq;
 
-    @JsonIgnore
     @ManyToOne
     @JoinColumn(name="userid", nullable = false)
     private User user;
@@ -50,9 +51,7 @@ public class Board {
     @Column(nullable = false)
     private Long board_group;
 
-
-    @OneToMany(mappedBy = "board",targetEntity = Comment.class)
+    @OneToMany(mappedBy = "board",targetEntity = Comment.class,fetch = FetchType.LAZY)
     private List<Comment> comments = new ArrayList<Comment>();
-
 
 }

@@ -9,9 +9,6 @@ public class IndexController {
     public String main(){
         return "main/domain";
     }
-    @RequestMapping(value = "/login")
-    public String login(){
-        return "main/login";
-    }
+
 
 }

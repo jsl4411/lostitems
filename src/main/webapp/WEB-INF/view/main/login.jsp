@@ -101,7 +101,7 @@
 								회원이 아니신가요?
 							</span>
 	
-							<a class="txt1 bo1 hov1" href="signupform.do">
+							<a class="txt1 bo1 hov1" href="/user/signup">
 								지금회원가입					
 							</a>
 						</div>

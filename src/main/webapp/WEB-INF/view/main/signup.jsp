@@ -9,18 +9,18 @@
 		<link rel="icon" type="image/png" href="../images/icons/favicon.ico"/>
 	
 	<!--===============================================================================================-->
-		<link rel="stylesheet" type="text/css" href="../../../../resources/static/css/util.css">
-		<link rel="stylesheet" type="text/css" href="../../../../resources/static/css/main.css">
+		<link rel="stylesheet" type="text/css" href="../css/util.css">
+		<link rel="stylesheet" type="text/css" href="../css/main.css">
 	<!--===============================================================================================-->
 		<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
-		<link rel="stylesheet" href="../../../../resources/static/css/signupmain.css">
+		<link rel="stylesheet" href="../css/signupmain.css">
 <!--==============================================================================================-->
 
 	 <script type="text/javascript">
 
 		function FormCancel(){
-			location.href = "../gxsx/login.do"
+			location.href = "../user/login"
 		}
 		
 		function CheckForm(authconfirm){
@@ -134,31 +134,31 @@
 
 				<div class="row form-group">
 					<label for="input3">비밀번호</label>
-					<input class="form-control" id="upwd" name="upwd" type="password" data-bvStrict="reg:^[A-Za-z]\w{7,14}$">
+					<input class="form-control" id="upwd" name="pwd" type="password" data-bvStrict="reg:^[A-Za-z]\w{7,14}$">
 					<span class="help-block error-message">8글자이상의 문자만 가능합니다</span>
 				</div>
 				<div class="row form-group">
 					<label for="input4">비밀번호 확인</label>
-					<input class="form-control" id="upwdagain" name="upwdagain" type="password" data-bvStrict="same:upwd" >
+					<input class="form-control" id="upwdagain" name="pwdagain" type="password" data-bvStrict="same:upwd" >
 					<span class="help-block error-message" style ="color:red">비밀번호 불일치</span>
 				</div>
 				
 				<div class="row form-group">
 					<label for=-"input0">이름</label>
-					<input class="form-control" id="uname" name="uname" type="text" data-bvStrict="notEmpty" data-bvSwitch="Your Name">
+					<input class="form-control" id="uname" name="name" type="text" data-bvStrict="notEmpty" data-bvSwitch="Your Name">
 					<div class="help-block error-message">문자만 가능</div>
 				</div>
 				
 				<div class="row form-group type-btn">
 					<label for="input1">이메일</label>
-					<input class="form-control" id="uemail" name="uemail" type="text" data-bvStrict="email" data-bvEmpty="@" >
+					<input class="form-control" id="uemail" name="email" type="text" data-bvStrict="email" data-bvEmpty="@" >
 					<button type="button" id="EmailSend" name="EmailSend" 
 						class="btn btn-default" onclick="CheckEmail(document.form2.uemail,document.form2.random)">번호전송</button>
 					<div class="help-block error-message">사용 가능한 이메일을 입력해주세요</div>
 					
 				</div>
 				<div class="row form-group type-btn">	
-					<input class="form-control" id="uemailauth" name="uemailauth" type="text" placeholder="이메일로 전송된 인증번호입력">
+					<input class="form-control" id="uemailauth" name="emailauth" type="text" placeholder="이메일로 전송된 인증번호입력">
 					<input type="hidden" path="random" name="random" id="random" value="${random}" />
 					<input type="hidden" name="authconfirm" id="authconfirm" value="" />
 					<button type="button" id="EmailConfirm" name="EmailConfirm" 
@@ -167,7 +167,7 @@
 				
 				<div class="row form-group">
 					<label for="input2">연락처</label>
-					<input class="form-control" id="upnum" name="upnum" type="text" data-bvStrict="phone" data-bvSwitch="000-0000-0000">
+					<input class="form-control" id="upnum" name="phone" type="text" data-bvStrict="phone" data-bvSwitch="000-0000-0000">
 					<div class="help-block error-message">(-)를 포함한 다음의 형태로 입력해주세요(000-0000-0000)</div>
 				</div>
 				
@@ -211,16 +211,16 @@
 		</div>
 
 	<!--===============================================================================================-->	
-		<script src="../../../../resources/static/vendor/jquery/jquery-3.2.1.min.js"></script>
+		<script src="../vendor/jquery/jquery-3.2.1.min.js"></script>
 	<!--===============================================================================================-->
-		<script src="../../../../resources/static/vendor/bootstrap/js/bootstrap.min.js"></script>
+		<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
 	<!--===============================================================================================-->
-		<script src="../../../../resources/static/vendor/select2/select2.min.js"></script>
+		<script src="../vendor/select2/select2.min.js"></script>
 	<!--===============================================================================================-->
-		<script src="../../../../resources/static/js/main.js"></script>
+		<script src="../js/main.js"></script>
         
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		<script src="../../../../resources/static/js/bvalidator.jquery.js"></script>
+		<script src="../js/bvalidator.jquery.js"></script>
 	
         <script type="text/javascript">
 			$(function(){
@@ -267,6 +267,6 @@
 
 		</script>
 		
-		<script src="../../../../resources/static/js/bootstrap.min.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
 	</body>
 </html>
