@@ -51,5 +51,8 @@ public class Board {
     @Column(nullable = false)
     private Long board_group;
 
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name="seq")
+    List<Comment> comments = new ArrayList<Comment>();
 
 }

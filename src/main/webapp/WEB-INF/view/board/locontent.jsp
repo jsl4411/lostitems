@@ -14,25 +14,25 @@
 		
 		<title>GxSx</title>
 		
-	<link rel="stylesheet" href="../css/beryllium/style.css">
-	<link rel="stylesheet" href="../css/beryllium/themify-icons.css">
-	<link rel="stylesheet" href="../css/topmenu.css">
+	<link rel="stylesheet" href="/css/beryllium/style.css">
+	<link rel="stylesheet" href="/css/beryllium/themify-icons.css">
+	<link rel="stylesheet" href="/css/topmenu.css">
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="../images/coza/icons/favicon.png"/>
-	<link rel="stylesheet" type="text/css" href="../vendor/coza/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="../fonts/coza/font-awesome-4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="../fonts/coza/iconic/css/material-design-iconic-font.min.css">
-	<link rel="stylesheet" type="text/css" href="../fonts/coza/linearicons-v1.0.0/icon-font.min.css">
-	<link rel="stylesheet" type="text/css" href="../vendor/coza/animate/animate.css">
-	<link rel="stylesheet" type="text/css" href="../vendor/coza/css-hamburgers/hamburgers.min.css">
-	<link rel="stylesheet" type="text/css" href="../vendor/coza/animsition/css/animsition.min.css">
-	<link rel="stylesheet" type="text/css" href="../vendor/coza/select2/select2.min.css">
-	<link rel="stylesheet" type="text/css" href="../vendor/coza/daterangepicker/daterangepicker.css">
-	<link rel="stylesheet" type="text/css" href="../vendor/coza/slick/slick.css">
-	<link rel="stylesheet" type="text/css" href="../vendor/coza/MagnificPopup/magnific-popup.css">
-	<link rel="stylesheet" type="text/css" href="../vendor/coza/perfect-scrollbar/perfect-scrollbar.css">
-	<link rel="stylesheet" type="text/css" href="../css/coza/util.css">
-	<link rel="stylesheet" type="text/css" href="../css/coza/main.css">
+	<link rel="icon" type="image/png" href="/images/coza/icons/favicon.png"/>
+	<link rel="stylesheet" type="text/css" href="/vendor/coza/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/fonts/coza/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/fonts/coza/iconic/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" type="text/css" href="/fonts/coza/linearicons-v1.0.0/icon-font.min.css">
+	<link rel="stylesheet" type="text/css" href="/vendor/coza/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="/vendor/coza/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="/vendor/coza/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="/vendor/coza/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="/vendor/coza/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" type="text/css" href="/vendor/coza/slick/slick.css">
+	<link rel="stylesheet" type="text/css" href="/vendor/coza/MagnificPopup/magnific-popup.css">
+	<link rel="stylesheet" type="text/css" href="/vendor/coza/perfect-scrollbar/perfect-scrollbar.css">
+	<link rel="stylesheet" type="text/css" href="/css/coza/util.css">
+	<link rel="stylesheet" type="text/css" href="/css/coza/main.css">
 	
 	<style>
 	</style>
@@ -83,11 +83,11 @@
 					<!-- Icon header -->
 					<div class="wrap-icon-header flex-w flex-r-m">
 						<ul class="main-menu">					
-							<c:if test="${ empty loginuser && empty klogin}">
+							<c:if test="${ empty loginUser && empty klogin}">
 									<li><i class="zmdi zmdi-account-circle"></i>
 										<a href="../gxsx/login.do">Login</a></li>
 							</c:if>
-							<c:if test="${ !empty loginuser }">
+							<c:if test="${ !empty loginUser }">
 								<li class="dropdown">
 							        <li class="dropdown">
 							          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -120,7 +120,7 @@
 							    </li>
 						    </c:if>
 								
-						<c:if test="${ !empty loginuser || !empty klogin }">
+						<c:if test="${ !empty loginUser || !empty klogin }">
 							<li class="dropdown">
 					          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="ti-user"></i></a>
 					          <ul class="dropdown-menu notify-drop" style="min-width:150px">
@@ -133,11 +133,11 @@
 					            		</div></li>
 					            	<li><div>&nbsp;&nbsp;
 						            		<i class="ti-power-off"></i>
-						            		<c:if test="${ empty loginuser && empty klogin}">
+						            		<c:if test="${ empty loginUser && empty klogin}">
 						            			&nbsp;<a href="">로그아웃</a>
 						            		</c:if>
-						            		<c:if test="${ !empty loginuser && empty kakaologout_url}">
-												&nbsp;<a href="../gxsx/logout.do">로그아웃</a>
+						            		<c:if test="${ !empty loginUser && empty kakaologout_url}">
+												&nbsp;<a href="/user/logout">로그아웃</a>
 											</c:if>
 											<c:if test="${!empty klogin && !empty kakaologout_url}">
 												&nbsp;<a href="${kakaologout_url}">로그아웃</a>
@@ -172,7 +172,7 @@
 			</a>
 
 			<span class="stext-109 cl4">
-				${locontent[0].losub}
+				${locontent.board_sub}
 			</span>
 		</div>
 	</div>
@@ -187,20 +187,20 @@
 							<div class="wrap-slick3-dots"></div>
 							<div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
 
-							<div class="slick3 gallery-lb">
-							<c:forEach items="${locontent}" var="locontent">
-								<div class="item-slick3" data-thumb="../images/Lostimgs/${locontent.lopicname }">
-									<div class="wrap-pic-w pos-relative">
-										<img src="../images/Lostimgs/${locontent.lopicname }" alt="IMG-PRODUCT">
+							<%--	<div class="slick3 gallery-lb">
+                                <c:forEach items="${boardcontant}" var="boardcontant">
+                                    <div class="item-slick3" data-thumb="../images/Lostimgs/">
+                                        <div class="wrap-pic-w pos-relative">
+                                            <img src="../images/Lostimgs/" alt="IMG-PRODUCT">
 
-										<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-01.jpg">
-											<i class="fa fa-expand"></i>
-										</a>
-									</div>
-								</div>
-							</c:forEach>
+                                            <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-01.jpg">
+                                                <i class="fa fa-expand"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </c:forEach>
 							
-							</div>
+							</div>--%>
 						</div>
 					</div>
 				</div>
@@ -208,7 +208,7 @@
 				<div class="col-md-6 col-lg-5 p-b-30">
 					<div class="p-r-50 p-t-5 p-lr-0-lg">
 						<h4 class="mtext-105 cl2 js-name-detail p-b-14">
-							${locontent[0].losub}
+							${boardcontant.board_sub}
 						</h4>
 						<ul class="p-lr-28 p-lr-15-sm">
 							<li class="flex-w flex-t p-b-7">
@@ -217,7 +217,7 @@
 								</span>
 
 								<span class="stext-102 cl6 size-206">
-									${locontent[0].lodate}
+									${boardcontant.date}
 								</span>
 							</li>
 
@@ -227,7 +227,7 @@
 								</span>
 
 								<span class="stext-102 cl6 size-206">
-									${area} / ${locontent[0].loplace}
+									${area}  ${boardcontant.place}
 								</span>
 							</li>
 
@@ -237,12 +237,12 @@
 								</span>
 
 								<span class="stext-102 cl6 size-206">
-									<c:if test="${locontent[0].logift==0}">
+									<c:if test="${boardcontant.board_group==0}">
 										<span class="stext-102 cl6 size-206">
 											없음
 										</span>
 									</c:if>
-									<c:if test="${locontent[0].logift==1}">
+									<c:if test="${boardcontant.board_group==1}">
 										<span class="stext-102 cl6 size-206">
 											있음
 										</span>
@@ -257,7 +257,7 @@
 
 								<span class="stext-102 cl6 size-206">
 								<div style="word-break:break-all">
-									${locontent[0].locon}
+									${boardcontant.content}
 								</div></span>
 							</li>
 						</ul>
@@ -265,18 +265,18 @@
 						<!-- botton -->
 						<div class="p-t-33">
 							<div class="flex-w flex-r-m p-b-10">
-								<c:if test="${(userid eq locontent[0].louid) && !userid.equals('sansillyung')}">
-									<a href="../lostitem/updatef.do?lono=${locontent[0].lono}"><button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04" >
+								<c:if test="${(userid eq boardcontant.user.userid) && !userid.equals('mondaygirl')}">
+									<a href="../lostitem/updatef.do?lono=${boardcontant.board_seq}"><button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04" >
 										수정
 									</button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								</c:if>
-								<c:if test="${userid eq locontent[0].louid}">
-									<a href="../lostitem/del.do?lono=${locontent[0].lono}"><button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+								<c:if test="${userid eq boardcontant.user.userid}">
+									<a href="/board/api/delete?board_seq=${boardcontant.board_seq}"><button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
 										삭제
 									</button></a>
 								</c:if>
-								<c:if test="${userid.equals('sansillyung')}">
-									<a href="../lostitem/del.do?lono=${locontent[0].lono}"><button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+								<c:if test="${userid.equals('mondaygirl')}">
+									<a href="../lostitem/del.do?lono=${boardcontant.board_seq}"><button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
 										삭제
 									</button></a>
 								</c:if>
@@ -303,14 +303,16 @@
 						<div class="tab-pane fade show active" id="description" role="tabpanel">
 							<div class="how-pos2 p-lr-15-md">
 								<div class="flex-w flex-t p-b-68" id="lost_comment_list">
-									<c:forEach var="comment" items="${comment}" varStatus="status">
+									<c:forEach var="comments" items="${boardcontant.comments}" varStatus="status">
+<%--
 										<c:if test="${comment.depth==0}">
-				  							<div class="size-207" id="locomment_${comment.comno}">
+--%>
+				  							<div class="size-207" id="comment_${comments.comment_seq}">
 												<div class="flex-w flex-sb-m p-b-17" style="justify-content: unset">
 													<span class="mtext-107 cl2 p-r-20">
-														${comment.userid} 
+														${boardcontant.user.userid}
 														<span class="stext-102 cl6">&nbsp;
-															${comment.codate} </span>
+															${comments.date} </span>
 													</span>
 		
 													<span class="fs-18 cl11">
@@ -319,18 +321,20 @@
 												</div>
 		
 												<p class="stext-102 cl6">
-													${comment.contents}
+													${comments.content}
 												</p>
 												</br>
 											</div>
-			  							</c:if>
+			  							<%--</c:if>--%>
+<%--
 			  							<c:if test="${comment.depth!=0 && !empty comment.pcom}">
-				  							<div class="size-207" id="locomment_${comment.comno}" style="margin-left:100px">
+--%>
+				  							<%--<div class="size-207" id="locomment_${comments.comment_seq}" style="margin-left:100px">
 												<div class="flex-w flex-sb-m p-b-17" style="justify-content: unset">
 													<span class="mtext-107 cl2 p-r-20">
-														${comment.userid} 
+														${boardcontant.user.userid}
 														<span class="stext-102 cl6">&nbsp;
-															${comment.codate} </span>
+															${comments.date} </span>
 													</span>
 		
 													<span class="fs-18 cl11">
@@ -340,14 +344,16 @@
 												</div>
 		
 												<p class="stext-102 cl6">
-													${comment.contents}
+													${comments.content}
 												</p>
 												</br>
-											</div>
+											</div>--%>
+<%--
 			  							</c:if>
-										
+--%>
+
 									</c:forEach>
-									
+
 								</div>
 								
 								<!-- Add review -->
@@ -361,7 +367,7 @@
 										</div>
 									</div>
 									<button class="flex-c-m stext-101 cl0 size-112 bg7 bor11 hov-btn3 p-lr-15 trans-04 m-b-10"
-											type="button" onclick="commentInsert('${locontent[0].lono}');">
+											type="button" onclick="commentInsert('${boardcontant.board_seq}');">
 										등록
 									</button>
 								</form>
@@ -691,14 +697,14 @@
 	</div>
 	
 <!--===============================================================================================-->	
-	<script src="../vendor/coza/jquery/jquery-3.2.1.min.js"></script>
+	<script src="/vendor/coza/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
-	<script src="../vendor/coza/animsition/js/animsition.min.js"></script>
+	<script src="/vendor/coza/animsition/js/animsition.min.js"></script>
 <!--===============================================================================================-->
-	<script src="../vendor/coza/bootstrap/js/popper.js"></script>
-	<script src="../vendor/coza/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/vendor/coza/bootstrap/js/popper.js"></script>
+	<script src="/vendor/coza/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
-	<script src="../coza/select2/select2.min.js"></script>
+	<script src="/coza/select2/select2.min.js"></script>
 	<script>
 		$(".js-select2").each(function(){
 			$(this).select2({
@@ -708,13 +714,13 @@
 		})
 	</script>
 <!--===============================================================================================-->
-	<script src="../vendor/coza/daterangepicker/moment.min.js"></script>
-	<script src="../vendor/coza/daterangepicker/daterangepicker.js"></script>
+	<script src="/vendor/coza/daterangepicker/moment.min.js"></script>
+	<script src="/vendor/coza/daterangepicker/daterangepicker.js"></script>
 <!--===============================================================================================-->
-	<script src="../vendor/coza/slick/slick.min.js"></script>
-	<script src="../js/coza/slick-custom.js"></script>
+	<script src="/vendor/coza/slick/slick.min.js"></script>
+	<script src="/js/coza/slick-custom.js"></script>
 <!--===============================================================================================-->
-	<script src="../vendor/coza/parallax100/parallax100.js"></script>
+	<script src="/vendor/coza/parallax100/parallax100.js"></script>
 	<script>
         $('.parallax100').parallax100();
 	</script>
@@ -733,9 +739,9 @@
 		});
 	</script>
 <!--===============================================================================================-->
-	<script src="../vendor/coza/isotope/isotope.pkgd.min.js"></script>
+	<script src="/vendor/coza/isotope/isotope.pkgd.min.js"></script>
 <!--===============================================================================================-->
-	<script src="../vendor/coza/sweetalert/sweetalert.min.js"></script>
+	<script src="/vendor/coza/sweetalert/sweetalert.min.js"></script>
 	<script>
 		$('.js-addwish-b2').on('click', function(e){
 			e.preventDefault();
@@ -772,7 +778,7 @@
 		});
 	</script>
 <!--===============================================================================================-->
-	<script src="../vendor/coza/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+	<script src="/vendor/coza/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 	<script>
 		$('.js-pscroll').each(function(){
 			$(this).css('position','relative');
@@ -789,12 +795,12 @@
 		});
 	</script>
 <!--===============================================================================================-->
-	<script src="../js/coza/main.js"></script>
+	<script src="/js/coza/main.js"></script>
 	
 	<!-- 자바스크립트  -->
-	<script src="../js/tempjs/LoComments.js"></script>
+	<script src="/js/tempjs/LoComments.js"></script>
 	<script>
-		commentList("${ locontent[0].lono }");
+		commentList("${ boardcontant.board_seq }");
 	</script>
 </body>
 </html>

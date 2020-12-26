@@ -255,22 +255,22 @@
 						<!-- Block2 -->
 						<div class="block2">
 							<div class="block2-pic hov-img0">
-								<c:if test="${ empty loginuser && empty klogin}">
-									<a href="../gxsx/login.do"><img src="../images/Lostimgs/${boardlist.category}" alt="IMG-PRODUCT"></a>
+								<c:if test="${ empty loginUser && empty klogin}">
+									<a href="/user/login"><img src="../images/Lostimgs/${boardlist.category}" alt="IMG-PRODUCT"></a>
 								</c:if>
 								<c:if test="${ (!empty loginuser && empty kakaologout_url) || (!empty klogin && !empty kakaologout_url)}">
-									<a href="../lostitem/locontent.do?lono=${boardlist.board_seq}"><img src="../images/Lostimgs/${boardlist.category}" alt="IMG-PRODUCT"></a>
+									<a href="/board/content/${boardlist.board_seq}"><img src="../images/Lostimgs/${boardlist.category}" alt="IMG-PRODUCT"></a>
 								</c:if>
 							</div>
 
 							<div class="block2-txt flex-w flex-t p-t-14">
 								<div class="block2-txt-child1 flex-col-l ">
 								<span class="m-r-3">
-									<c:if test="${ empty loginuser && empty klogin}">
-										<a href="../gxsx/login.do"><span class="cl5">${boardlist.board_sub}</span></a>
+									<c:if test="${ empty loginUser && empty klogin}">
+										<a href="/user/login"><span class="cl5">${boardlist.board_sub}</span></a>
 									</c:if>
-					           		<c:if test="${ (!empty loginuser && empty kakaologout_url) || (!empty klogin && !empty kakaologout_url)}">
-										<a href="../lostitem/locontent.do?lono=${boardlist.board_seq}"><span class="cl5">${boardlist.board_sub}</span></a>
+					           		<c:if test="${ (!empty loginUser && empty kakaologout_url) || (!empty klogin && !empty kakaologout_url)}">
+										<a href="/board/content/${boardlist.board_seq}"><span class="cl5">${boardlist.board_sub}</span></a>
 									</c:if>
 								</span>
 									<a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6"></a>

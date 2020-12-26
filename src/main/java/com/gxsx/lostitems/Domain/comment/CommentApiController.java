@@ -3,11 +3,10 @@ package com.gxsx.lostitems.Domain.comment;
 import com.gxsx.lostitems.Domain.board.Board;
 import com.gxsx.lostitems.Domain.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.List;
 
@@ -21,7 +20,6 @@ public class CommentApiController {
     @RequestMapping(value = "",method = RequestMethod.GET)
     public List<Comment> findAll(){
         Comment comment = new Comment();
-        System.out.println("@@@@@@@@@"+comment.getBoard());
 
         return (List<Comment>) commentService.findAll();
     }
@@ -33,12 +31,12 @@ public class CommentApiController {
     }
 
 
-    @RequestMapping(value = "/write")
-    public String write(CommentVO comment){
-        System.out.println("in comment write");
+    @PostMapping(value = "/write")
+    public String write(@RequestBody CommentVO comment, HttpServletRequest request){
 
-        //getBoard 가 다 들어와야됨
-        return commentService.write(comment);
+        String userid = (String) request.getSession().getAttribute("loginUser");
+
+        return commentService.write(comment,userid);
     }
     @RequestMapping(value = "/delete/{comment_seq}")
     public String delete(@PathVariable("comment_seq") Long comment_seq){

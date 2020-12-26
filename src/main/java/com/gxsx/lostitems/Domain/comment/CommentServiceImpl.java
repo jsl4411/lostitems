@@ -34,15 +34,14 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public String write(CommentVO comment) {
+    public String write(CommentVO comment, String userid) {
         System.out.println("in comment write service");
-        Optional<User> user = Optional.ofNullable(userRepository.findUserByUserid(comment.userid));
-        Optional<Board> board = boardRepository.findById(comment.board_seq);
+        Optional<User> user = Optional.ofNullable(userRepository.findUserByUserid(userid));
         Comment comment1 = new Comment();
         comment1.setUser(user.get());
         comment1.setContent(comment.content);
-        comment1.setBoard(board.get());
-        comment1.setDate(comment.date);
+        comment1.setSeq(comment.board_seq);
+        comment1.setDate(new Date());
 
         commentRepository.save(comment1);
 

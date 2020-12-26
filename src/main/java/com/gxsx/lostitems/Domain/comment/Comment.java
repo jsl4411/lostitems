@@ -21,9 +21,8 @@ public class Comment {
     @Column(nullable = false)
     private Long comment_seq;
 
-    @ManyToOne
-    @JoinColumn(name="seq",nullable = false)
-    private Board board;
+    @Column(name="seq",nullable = false)
+    private Long seq;
 
     @ManyToOne
     @JoinColumn(name = "userid",nullable = false)

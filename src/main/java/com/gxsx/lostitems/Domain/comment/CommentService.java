@@ -7,7 +7,8 @@ public interface CommentService {
 
     Comment findBySeq(long seq);
 
-    String write(CommentVO comment);
+    String write(CommentVO comment, String userid);
 
     String delete(Long comment_seq);
+
 }
