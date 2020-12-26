@@ -11,8 +11,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.Date;
 
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Getter
+@NoArgsConstructor
 @Entity
 @Data
 @Table(name = "comment")
@@ -22,7 +21,7 @@ public class Comment {
     @Column(nullable = false)
     private Long comment_seq;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name="seq",nullable = false)
     private Board board;
 

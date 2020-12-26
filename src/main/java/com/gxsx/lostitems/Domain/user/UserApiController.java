@@ -1,8 +1,12 @@
 package com.gxsx.lostitems.Domain.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.boot.web.servlet.server.Session;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @RestController
 @RequestMapping(value = "user/api")
@@ -10,27 +14,20 @@ public class UserApiController {
     @Autowired //
     UserService userService;
 
-    @RequestMapping(value = "/login")
-    public String login(User user){
+    @PostMapping(value = "/login")
+    public String login(@RequestBody User user, HttpSession session,
+                        HttpServletRequest request, HttpServletResponse response){
 
-        User user1 = new User();
-        user1.setUserid("june");
-        user1.setPwd("1234");
+        session = request.getSession();
+        session.setAttribute("loginUser", user.getUserid());
 
-        return userService.findUserByUserid(user1);
-
+        return userService.findUserByUserid(user);
     }
+
+
     @RequestMapping(value = "/signup")
     public String signUp(User user){
 
-        User user1 = new User();
-        user1.setUserid("mondaygirl");
-        user1.setEmail("1@2");
-        user1.setName("jj");
-        user1.setPhone("1111");
-        user1.setPwd("1234");
-
-        return userService.createUser(user1);
-
+        return userService.createUser(user);
     }
 }

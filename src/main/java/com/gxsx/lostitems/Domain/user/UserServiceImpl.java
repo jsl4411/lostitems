@@ -1,8 +1,10 @@
 package com.gxsx.lostitems.Domain.user;
 
+import org.apache.catalina.session.StandardSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Service
@@ -14,6 +16,8 @@ public class UserServiceImpl implements UserService{
     @Override
     public String findUserByUserid(User loginUser) {
         User userData = userRepository.findUserByUserid(loginUser.getUserid());
+
+
         if(userData == null){
             return "fail";
         }

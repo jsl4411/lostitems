@@ -37,9 +37,11 @@ public class User {
     @Column(length = 30, nullable = false)
     private String phone;
 
-    @OneToMany(mappedBy = "user",targetEntity = Board.class,fetch = FetchType.LAZY)
-    private List<Board> boards = new ArrayList<Board>();
-
-    @OneToMany(mappedBy = "user",targetEntity = Comment.class,fetch = FetchType.LAZY)
-    private List<Comment> comments = new ArrayList<Comment>();
+    public User(String userid, String pwd, String name, String email, String phone) {
+        this.userid = userid;
+        this.pwd = pwd;
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+    }
 }

@@ -43,22 +43,9 @@ public class BoardApiController {
     }
     @RequestMapping(value = "/write")
     public String write(Board board){
-        Board board1 = new Board();
-        User user = new User();
-
-        user.setUserid("june");
-        board1.setUser(user);
-        board1.setBoard_sub("안녕하세요");
-        board1.setCategory("지갑");
-        board1.setBoard_group(1L);
-        board1.setPlace("등촌역");
-        board1.setContent("찾아주세요ㅠㅠ");
-        board1.setDate(new Date());
-        board1.setAno(02L);
 
 
-
-        return boardService.write(board1);
+        return boardService.write(board);
     }
     @RequestMapping(value = "/delete/{board_seq}")
     public String delete(@PathVariable("board_seq") Long board_seq){

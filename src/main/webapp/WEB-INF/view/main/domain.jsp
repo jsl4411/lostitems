@@ -37,7 +37,7 @@
 	<style>
 	
 	</style>
-	
+
 </head>
 
 <body class="animsition">
@@ -84,11 +84,11 @@
 					<!-- Icon header -->
 					<div class="wrap-icon-header flex-w flex-r-m">
 						<ul class="main-menu">					
-							<c:if test="${ empty loginuser && empty klogin}">
+							<c:if test="${ empty loginUser && empty klogin}">
 									<li><i class="zmdi zmdi-account-circle"></i>
 										<a href="/user/login">Login</a></li>
 							</c:if>
-							<c:if test="${ !empty loginuser }">
+							<c:if test="${ !empty loginUser }">
 								<li class="dropdown">
 							        <li class="dropdown">
 							          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -121,7 +121,7 @@
 							    </li>
 						    </c:if>
 								
-						<c:if test="${ !empty loginuser || !empty klogin }">
+						<c:if test="${ !empty loginUser || !empty klogin }">
 							<li class="dropdown">
 					          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="ti-user"></i></a>
 					          <ul class="dropdown-menu notify-drop" style="min-width:150px">
@@ -134,11 +134,11 @@
 					            		</div></li>
 					            	<li><div>&nbsp;&nbsp;
 						            		<i class="ti-power-off"></i>
-						            		<c:if test="${ empty loginuser && empty klogin}">
+						            		<c:if test="${ empty loginUser && empty klogin}">
 						            			&nbsp;<a href="">로그아웃</a>
 						            		</c:if>
-						            		<c:if test="${ !empty loginuser && empty kakaologout_url}">
-												&nbsp;<a href="../gxsx/logout.do">로그아웃</a>
+						            		<c:if test="${ !empty loginUser && empty kakaologout_url}">
+												&nbsp;<a href="/user/logout">로그아웃</a>
 											</c:if>
 											<c:if test="${!empty klogin && !empty kakaologout_url}">
 												&nbsp;<a href="${kakaologout_url}">로그아웃</a>

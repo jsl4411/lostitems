@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -19,8 +20,10 @@ public class BoardController {
 
 
     @RequestMapping(value = "/")
-    public String board(Model model){
+    public String board(Model model, HttpServletRequest request){
         List<Board> boardList = boardService.findAll();
+
+        model.addAttribute("loginUser",request.getSession().getAttribute("loginUser"));
         model.addAttribute("boardlist",boardList);
 
         return "board/lolist";
@@ -30,6 +33,7 @@ public class BoardController {
     public String getwrite(){
         return "board/lowrite";
     }
+
     @PostMapping("/write")
     public String write(Board board, BindingResult result){
         boardService.write(board);

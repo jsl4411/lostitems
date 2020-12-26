@@ -34,19 +34,16 @@ public class CommentApiController {
 
 
     @RequestMapping(value = "/write")
-    public String write(Comment comment){
-        Comment comment1 = new Comment();
-        User user = new User();
-        Board board = new Board();
+    public String write(CommentVO comment){
+        System.out.println("in comment write");
 
-        user.setUserid("june");
-        comment1.setBoard(board);
-        board.setBoard_seq(2L);
-        comment1.setUser(user);
-        comment1.setContent("여기있어요!");
-        comment1.setDate(new Date());
-
+        //getBoard 가 다 들어와야됨
         return commentService.write(comment);
+    }
+    @RequestMapping(value = "/delete/{comment_seq}")
+    public String delete(@PathVariable("comment_seq") Long comment_seq){
+
+        return commentService.delete(comment_seq);
     }
 
 }

@@ -51,7 +51,5 @@ public class Board {
     @Column(nullable = false)
     private Long board_group;
 
-    @OneToMany(mappedBy = "board",targetEntity = Comment.class,fetch = FetchType.LAZY)
-    private List<Comment> comments = new ArrayList<Comment>();
 
 }
