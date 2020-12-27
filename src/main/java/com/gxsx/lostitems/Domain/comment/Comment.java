@@ -24,7 +24,7 @@ public class Comment {
     @Column(name="seq",nullable = false)
     private Long seq;
 
-    @ManyToOne
+    @ManyToOne(targetEntity = User.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "userid",nullable = false)
     private User user;
 

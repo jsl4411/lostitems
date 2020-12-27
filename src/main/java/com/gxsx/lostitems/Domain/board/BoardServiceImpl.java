@@ -1,9 +1,12 @@
 package com.gxsx.lostitems.Domain.board;
 
+import com.gxsx.lostitems.Domain.user.User;
+import com.gxsx.lostitems.Domain.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -11,7 +14,9 @@ import java.util.Optional;
 public class BoardServiceImpl implements BoardService{
 
     @Autowired
-    BoardRepository boardRepository;
+    private BoardRepository boardRepository;
+    @Autowired
+    private UserRepository userRepository;
 
     @Override
     public List<Board> findAll() {
@@ -27,10 +32,22 @@ public class BoardServiceImpl implements BoardService{
     }
 
     @Override
-    @Transactional
-    public String write(Board board) {//글쓰기 단순해 회원가입이랑 비슷해 그지?
+    public String write(Board board, String userid) {//글쓰기 단순해 회원가입이랑 비슷해 그지?
+        System.out.println("asdfhjkasashjfklasldjhfkjahlshdfjklahskdjfh");
 
-        boardRepository.save(board);
+        Optional<User> user = Optional.ofNullable(userRepository.findUserByUserid(userid));
+        Board board1 = new Board();
+        board1.setUser(user.get());
+        board1.setBoard_group(board.getBoard_group());
+        board1.setBoard_sub(board.getBoard_sub());
+        board1.setDate(board.getDate());
+        board1.setContent(board.getContent());
+        board1.setAno(board.getAno());
+        board1.setPlace(board.getPlace());
+        board1.setCategory(board.getCategory());
+
+        System.out.println("@@"+board1);
+        boardRepository.save(board1);
 
         return "success";
     }

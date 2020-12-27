@@ -3,11 +3,9 @@ package com.gxsx.lostitems.Domain.board;
 import com.gxsx.lostitems.Domain.user.User;
 import com.gxsx.lostitems.Domain.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
@@ -41,14 +39,19 @@ public class BoardApiController {
 
         return boardData;
     }
-    @RequestMapping(value = "/write")
-    public String write(Board board){
+    @PostMapping(value = "/write")
+    public String write(@RequestBody Board board, HttpServletRequest request){
 
+        String userid = (String) request.getSession().getAttribute("loginUser");
+        System.out.println("@@@@@@@"+board);
 
-        return boardService.write(board);
+        return boardService.write(board,userid);
+
     }
-    @RequestMapping(value = "/delete/{board_seq}")
+    @GetMapping(value = "/delete/{board_seq}")
     public String delete(@PathVariable("board_seq") Long board_seq){
+
+        System.out.println("@@@@@"+board_seq);
 
         return boardService.deleteById(board_seq);
 

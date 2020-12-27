@@ -42,7 +42,30 @@
 			height:70px;
 		}
 	</style>
-	
+		<script type="text/javascript">
+			function Boardwrite() {
+					$.ajax({
+						type:'POST',
+						url:"/board/api/write",
+						contentType:'application/json',
+						dataType: 'text',
+						data: JSON.stringify
+						  ({"board_group":$("#board_group").val(),
+							"ano":$("#ano").val(),
+							"category":$("#category").val(),
+							"content":$("#content").val(),
+							"place":$("#place").val(),
+						   	"board_sub":$("#board_sub").val()}),
+						success:function(data){
+							location.href='/board/'
+						},
+						error:function (data){
+							alert("다시");
+						}
+					});
+				}
+		</script>
+
 </head>
 
 <body class="animsition">
@@ -197,13 +220,13 @@
 								</div>
 								<div class='card-body fs-12'>
 									<form class='form2 fs-12' method='post'  name='write' id='form2' role='form2' enctype='multipart/form-data'
-										autocomplete='off' action='write'>
+										autocomplete='off' action=''>
 										<div class='form-group row'>
 											<label for='noinputId'
 												class='col-lg-2 col-form-label form-control-label'>작성자</label>
 											<div class='col-lg-10'>
-												<input type='text' class='form-control fs-12' id='editId'
-													name='userid' value='${board.userid}'>
+												<input type='text' class='form-control fs-12' id='editId' readonly=""
+													name='userid' value='${loginUser}'>
 											</div>
 										</div>
 										
@@ -211,7 +234,7 @@
 											<label for='inputSub'
 												class='col-lg-2 col-form-label form-control-label'>제목</label>
 											<div class='col-lg-10'>
-											<input class='form-control fs-12' type='text' id='editSub'
+											<input class='form-control fs-12' type='text' id='board_sub'
 													name='board_sub' value='${board.board_sub}' required=''>
 											</div>
 										</div>
@@ -222,7 +245,7 @@
 												class='col-lg-2 col-form-label form-control-label'>날짜</label>
 											<div class='col-lg-10'>
 												
-												<input class='form-control fs-12' type='date' id='editDate',value='${board.date}'
+												<input class='form-control fs-12' type='date' id='date' value='${board.date}'
 													name='date'  required=''>
 											</div>
 										</div>
@@ -257,7 +280,7 @@
 											<label for='inputPlace'
 												class='col-lg-2 col-form-label form-control-label' style="text-align:right">분실장소</label>
 											<div class='col-lg-5'>
-												<input class='form-control fs-12' type='text' id='editPlace'
+												<input class='form-control fs-12' type='text' id='place'
 													name='place' required=''>
 											</div>
 										</div>
@@ -267,7 +290,7 @@
 												class='col-lg-2 col-form-label form-control-label'>물품종류</label>
 											<div class='col-lg-3'>
 												<div class="select-box">
-											      <select class="ui fluid dropdown" name="category",value='${board.category}', onmousedown="if(this.options.length>5){this.size=5;}" onchange='this.size=0;' onblur="this.size=0;">
+											      <select class="ui fluid dropdown"id="category" name="category",value='${board.category}', onmousedown="if(this.options.length>5){this.size=5;}" onchange='this.size=0;' onblur="this.size=0;">
 												       <option value="가방">가방</option>
 											           <option value="귀금속">귀금속</option>
 											           <option value="도서용품">도서용품</option>
@@ -304,7 +327,7 @@
 											<label for='inputPnum'
 												class='col-lg-2 col-form-label form-control-label'>내용</label>
 											<div class='col-lg-10'>
-												<textarea rows="2" class='form-control csisize fs-12' type='text' id='editCon'
+												<textarea rows="2" class='form-control csisize fs-12' type='text' id='content'
 													name='content' value='${board.content}' required=''></textarea>
 											</div>
 										</div>
@@ -320,7 +343,7 @@
 												style='opacity: 0; pointer-events: none'></div>
 											<button
 												class='flex-c-m stext-101 cl2 size-119 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-10'
-												id='submit2' name='submit2' type='submit'>
+												id='submit2' name='submit2' onclick="Boardwrite()">
 												등록</button>
 											&emsp;
 											<button

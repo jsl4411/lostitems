@@ -13,7 +13,7 @@ public interface BoardService {
 
     Board findById(long board_seq);
 
-    String write(Board board);
+    String write(Board board, String userid);
 
     String deleteById(Long board_seq);
 }

@@ -36,8 +36,7 @@
 	
 	<style>
 	</style>
-	
-</head>
+		</head>
 
 <body class="animsition">
 	
@@ -265,21 +264,21 @@
 						<!-- botton -->
 						<div class="p-t-33">
 							<div class="flex-w flex-r-m p-b-10">
-								<c:if test="${(userid eq boardcontant.user.userid) && !userid.equals('mondaygirl')}">
-									<a href="../lostitem/updatef.do?lono=${boardcontant.board_seq}"><button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04" >
+								<c:if test="${(loginUser eq boardcontant.user.userid)}">
+									<a href="/board/${boardcontant.board_seq}"><button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04" >
 										수정
 									</button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								</c:if>
-								<c:if test="${userid eq boardcontant.user.userid}">
-									<a href="/board/api/delete?board_seq=${boardcontant.board_seq}"><button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+								<c:if test="${loginUser eq boardcontant.user.userid}">
+									<a href="/board/api/delete/${boardcontant.board_seq}"><button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
 										삭제
 									</button></a>
 								</c:if>
-								<c:if test="${userid.equals('mondaygirl')}">
-									<a href="../lostitem/del.do?lono=${boardcontant.board_seq}"><button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+								<%--<c:if test="${loginUser.equals('mondaygirl')}">
+									<a href="/board/api/delete/${boardcontant.board_seq}"><button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
 										삭제
 									</button></a>
-								</c:if>
+								</c:if>--%>
 							</div>	
 						</div>
 						

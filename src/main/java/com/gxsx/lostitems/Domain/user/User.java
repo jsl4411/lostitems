@@ -22,7 +22,7 @@ import java.util.List;
 @Data
 public class User {
     @Id
-    @Column(length = 30,nullable = false)
+    @Column(name="userid" ,length = 30,nullable = false)
     private String userid;
 
     @Column(length = 30, nullable = false)

@@ -9,6 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ public class Board {
     @Column(nullable = false)
     private Long board_seq;
 
-    @ManyToOne
+    @ManyToOne(targetEntity = User.class, fetch = FetchType.LAZY)
     @JoinColumn(name="userid", nullable = false)
     private User user;
 
@@ -36,6 +37,7 @@ public class Board {
     @Column(length = 200, nullable = false)
     private String content;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Temporal(TemporalType.DATE)
     Date date;
 

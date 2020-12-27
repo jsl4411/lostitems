@@ -45,7 +45,9 @@ public class BoardController {
 
     @PostMapping("/write")
     public String write(Board board, BindingResult result){
-        boardService.write(board);
+
+        System.out.println("@@@@@@@@" + board);
+
         return "redirect:/";
     }
 
@@ -57,8 +59,10 @@ public class BoardController {
         model.addAttribute("loginUser",request.getSession().getAttribute("loginUser"));
 
         model.addAttribute("boardcontant", boardcontant );
-        System.out.println("@@@@@@@"+boardcontant);
 
         return "board/locontent";
     }
+
+
+
 }
