@@ -16,4 +16,6 @@ public interface BoardService {
     String write(Board board, String userid);
 
     String deleteById(Long board_seq);
+
+    String update(Board board, String userid);
 }

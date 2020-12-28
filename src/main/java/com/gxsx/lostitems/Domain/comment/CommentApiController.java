@@ -35,13 +35,13 @@ public class CommentApiController {
     public String write(@RequestBody CommentVO comment, HttpServletRequest request){
 
         String userid = (String) request.getSession().getAttribute("loginUser");
-
+        System.out.println("@@@@@@@@@"+comment.comment_seq);
         return commentService.write(comment,userid);
     }
-    @RequestMapping(value = "/delete/{comment_seq}")
-    public String delete(@PathVariable("comment_seq") Long comment_seq){
+    @GetMapping(value = "/delete/{comment_seq}")
+    public String delete(@PathVariable("comment_seq") String comment_seq){
 
-        return commentService.delete(comment_seq);
+        return commentService.delete(Long.parseLong(comment_seq));
     }
 
 }

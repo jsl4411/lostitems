@@ -36,7 +36,9 @@
 	
 	<style>
 	</style>
-		</head>
+
+
+	</head>
 
 <body class="animsition">
 	
@@ -203,7 +205,10 @@
 						</div>
 					</div>
 				</div>
-					
+
+				<span id="board_seq" class="board_seq" name="board_seq">
+					${boardcontant.board_seq}
+				</span>
 				<div class="col-md-6 col-lg-5 p-b-30">
 					<div class="p-r-50 p-t-5 p-lr-0-lg">
 						<h4 class="mtext-105 cl2 js-name-detail p-b-14">
@@ -225,7 +230,7 @@
 									분실장소
 								</span>
 
-								<span class="stext-102 cl6 size-206">
+								<span class="stext-102 cl6 size-206" id="place">
 									${area}  ${boardcontant.place}
 								</span>
 							</li>
@@ -264,16 +269,19 @@
 						<!-- botton -->
 						<div class="p-t-33">
 							<div class="flex-w flex-r-m p-b-10">
+								<div class="flex-w flex-r-m p-b-10">
 								<c:if test="${(loginUser eq boardcontant.user.userid)}">
-									<a href="/board/${boardcontant.board_seq}"><button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04" >
-										수정
-									</button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								</c:if>
+									<a href="/board/edit/${boardcontant.board_seq}"><button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04"onclick="boardEdit()">
+									수정
+									</button>
+										</c:if></a></div>
+								<div class="flex-w flex-r-m p-b-10">
 								<c:if test="${loginUser eq boardcontant.user.userid}">
-									<a href="/board/api/delete/${boardcontant.board_seq}"><button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+									<%--<a href="/board/api/delete/${boardcontant.board_seq}">--%><button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04" onclick="boardDelete()">
 										삭제
-									</button></a>
+									</button>
 								</c:if>
+									</div>
 								<%--<c:if test="${loginUser.equals('mondaygirl')}">
 									<a href="/board/api/delete/${boardcontant.board_seq}"><button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
 										삭제
@@ -303,53 +311,34 @@
 							<div class="how-pos2 p-lr-15-md">
 								<div class="flex-w flex-t p-b-68" id="lost_comment_list">
 									<c:forEach var="comments" items="${boardcontant.comments}" varStatus="status">
-<%--
-										<c:if test="${comment.depth==0}">
---%>
-				  							<div class="size-207" id="comment_${comments.comment_seq}">
-												<div class="flex-w flex-sb-m p-b-17" style="justify-content: unset">
-													<span class="mtext-107 cl2 p-r-20">
-														${boardcontant.user.userid}
-														<span class="stext-102 cl6">&nbsp;
-															${comments.date} </span>
-													</span>
-		
-													<span class="fs-18 cl11">
-														<a href="#" class="stext-109 cl8 hov-cl1 trans-04">reply</a>
-													</span>
-												</div>
-		
-												<p class="stext-102 cl6">
-													${comments.content}
-												</p>
-												</br>
+
+
+										<div class="size-207" id="locomment_${comment.comment_seq}" style="margin-left:100px">
+											<div class="flex-w flex-sb-m p-b-17" style="justify-content: unset">
+												<span class="mtext-107 cl2 p-r-20">
+													${boardcontant.user.userid}
+													<span class="stext-102 cl6">&nbsp;
+														${comment.date} </span>
+												</span>
+
+												<span class="fs-18 cl11">
+												<c:if test="${loginUser eq boardcontant.user.userid }">
+													<c:if test="${!empty loginUser}">
+														<button id="btn${comment.comment_seq}"  type="button" onclick="update_form_id(this.value);" value="${comment.comment_seq}" class="stext-109 cl8 hov-cl1 trans-04">수정</button>
+														<button id="btndel${comment.comment_seq}" type="button" onclick="commentDelete('${comment.comment_seq}', '${ comment.seq }');" value="${comment.comment_seq}" class="stext-109 cl8 hov-cl1 trans-04" >삭제</button>
+													</c:if>
+												</c:if>
+																				<!-- <a href="#" class="stext-109 cl8 hov-cl1 trans-04"><i class="zmdi zmdi-mail-reply"></i></a>  -->
+												</span>
 											</div>
-			  							<%--</c:if>--%>
-<%--
-			  							<c:if test="${comment.depth!=0 && !empty comment.pcom}">
---%>
-				  							<%--<div class="size-207" id="locomment_${comments.comment_seq}" style="margin-left:100px">
-												<div class="flex-w flex-sb-m p-b-17" style="justify-content: unset">
-													<span class="mtext-107 cl2 p-r-20">
-														${boardcontant.user.userid}
-														<span class="stext-102 cl6">&nbsp;
-															${comments.date} </span>
-													</span>
-		
-													<span class="fs-18 cl11">
-<!-- 														<a href="#" class="stext-109 cl8 hov-cl1 trans-04">reply</a> -->
-														<a href="#" class="stext-109 cl8 hov-cl1 trans-04"><i class="zmdi zmdi-mail-reply"></i></a>
-													</span>
-												</div>
-		
+
+											<div id="update-form-${comment.comment_seq}">
 												<p class="stext-102 cl6">
-													${comments.content}
+													<c:out value="${ comment.content }" escapeXml="true"/>
 												</p>
-												</br>
-											</div>--%>
-<%--
-			  							</c:if>
---%>
+											</div>
+											<br/>
+										</div>
 
 									</c:forEach>
 
@@ -703,7 +692,7 @@
 	<script src="/vendor/coza/bootstrap/js/popper.js"></script>
 	<script src="/vendor/coza/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
-	<script src="/coza/select2/select2.min.js"></script>
+	<script src="/vendor/coza/select2/select2.min.js"></script>
 	<script>
 		$(".js-select2").each(function(){
 			$(this).select2({
@@ -724,7 +713,7 @@
         $('.parallax100').parallax100();
 	</script>
 <!--===============================================================================================-->
-	<script src="../vendor/coza/MagnificPopup/jquery.magnific-popup.min.js"></script>
+	<script src="/vendor/coza/MagnificPopup/jquery.magnific-popup.min.js"></script>
 	<script>
 		$('.gallery-lb').each(function() { // the containers for all your galleries
 			$(this).magnificPopup({
@@ -799,7 +788,27 @@
 	<!-- 자바스크립트  -->
 	<script src="/js/tempjs/LoComments.js"></script>
 	<script>
+
 		commentList("${ boardcontant.board_seq }");
+
+			function boardDelete(){
+			alert($("#board_seq").html())
+
+			$.ajax({
+			type:"GET",
+			url:"/board/api/delete/"+$("#board_seq").html(),
+			contentType: 'application/json',
+			dataType: 'text',
+			success: function(data){
+			location.href='/board/'
+		},
+			error: function(data){
+			alert("애러");
+		}
+		});
+		}
+
+
 	</script>
 </body>
 </html>

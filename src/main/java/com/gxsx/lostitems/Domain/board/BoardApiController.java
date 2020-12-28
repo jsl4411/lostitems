@@ -33,12 +33,7 @@ public class BoardApiController {
         return (List<Board>) boardService.findAll();
     }
 
-    @RequestMapping(value = "/findone/{board_seq}")
-    public Board findById(@PathVariable("board_seq") long board_seq){
-        Board boardData = boardService.findById(board_seq);
 
-        return boardData;
-    }
     @PostMapping(value = "/write")
     public String write(@RequestBody Board board, HttpServletRequest request){
 
@@ -51,11 +46,13 @@ public class BoardApiController {
     @GetMapping(value = "/delete/{board_seq}")
     public String delete(@PathVariable("board_seq") Long board_seq){
 
-        System.out.println("@@@@@"+board_seq);
-
         return boardService.deleteById(board_seq);
-
     }
+    @PostMapping("/edit/{board_seq}")
+    public String update(Board board, HttpServletRequest request){
+        String userid = (String) request.getSession().getAttribute("loginUser");
 
+        return boardService.update(board,userid);
+    }
 
 }

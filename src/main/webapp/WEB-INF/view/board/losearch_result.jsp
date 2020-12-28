@@ -1,3 +1,4 @@
+<%--
 <%@ page language="java" contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -95,4 +96,4 @@
 				    	onclick="searchAction('${lostResult.paging.endPage+1}', false);">
 				      		&#187;</p>
 				</c:if>			  
-			</div>
+			</div>--%>

@@ -33,7 +33,6 @@ public class BoardServiceImpl implements BoardService{
 
     @Override
     public String write(Board board, String userid) {//글쓰기 단순해 회원가입이랑 비슷해 그지?
-        System.out.println("asdfhjkasashjfklasldjhfkjahlshdfjklahskdjfh");
 
         Optional<User> user = Optional.ofNullable(userRepository.findUserByUserid(userid));
         Board board1 = new Board();
@@ -55,6 +54,17 @@ public class BoardServiceImpl implements BoardService{
     @Override
     public String deleteById(Long board_seq) {
         boardRepository.deleteById(board_seq);
+
+        return "success";
+    }
+
+
+    @Override
+    public String update(Board board, String userid) {
+        Optional<User> user = Optional.ofNullable(userRepository.findUserByUserid(userid));
+        Board board1 = new Board();
+        board1.setUser(user.get());
+        boardRepository.save(board);
 
         return "success";
     }

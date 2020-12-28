@@ -51,16 +51,28 @@ public class BoardController {
         return "redirect:/";
     }
 
-    @RequestMapping(value = "/content/{board_seq}")
-    public  String content(@PathVariable("board_seq") long board_seq, Model model, HttpServletRequest request ){
+    @GetMapping(value = "/content/{board_seq}")
+    public String content(@PathVariable("board_seq") String board_seq, Model model, HttpServletRequest request ){
+        System.out.println(board_seq);
 
-       Board boardcontant = boardService.findById(board_seq);
+       Board boardcontant = boardService.findById(Long.parseLong(board_seq));
 
         model.addAttribute("loginUser",request.getSession().getAttribute("loginUser"));
 
         model.addAttribute("boardcontant", boardcontant );
 
         return "board/locontent";
+    }
+    @GetMapping(value = "/edit/{board_seq}")
+    public String edit(@PathVariable("board_seq") Long board_seq,Model model, HttpServletRequest request){
+
+        Board boardedit = boardService.findById(board_seq);
+
+         model.addAttribute("loginUser",request.getSession().getAttribute("loginUser"));
+
+         model.addAttribute("boardedit", boardedit);
+
+        return "board/updatef";
     }
 
 

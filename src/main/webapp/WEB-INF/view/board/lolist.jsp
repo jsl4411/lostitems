@@ -258,10 +258,11 @@
 								<c:if test="${ empty loginUser && empty klogin}">
 									<a href="/user/login"><img src="../images/Lostimgs/${boardlist.category}" alt="IMG-PRODUCT"></a>
 								</c:if>
-								<c:if test="${ (!empty loginuser && empty kakaologout_url) || (!empty klogin && !empty kakaologout_url)}">
+								<c:if test="${ (!empty loginUser && empty kakaologout_url) || (!empty klogin && !empty kakaologout_url)}">
 									<a href="/board/content/${boardlist.board_seq}"><img src="../images/Lostimgs/${boardlist.category}" alt="IMG-PRODUCT"></a>
 								</c:if>
 							</div>
+
 
 							<div class="block2-txt flex-w flex-t p-t-14">
 								<div class="block2-txt-child1 flex-col-l ">
@@ -273,7 +274,9 @@
 										<a href="/board/content/${boardlist.board_seq}"><span class="cl5">${boardlist.board_sub}</span></a>
 									</c:if>
 								</span>
+<%--
 									<a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6"></a>
+--%>
 
 									<span class="stext-105 cl3">
 									<i class="zmdi zmdi-calendar"></i>&nbsp;${boardlist.date}
@@ -700,7 +703,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
     <script src="https://unpkg.com/lightpick@latest/lightpick.js"></script>
     <script src="../js/demo.js"></script>
+<%--
     <script src="../js/losearch.js"></script>
+--%>
     <script>
     	$(document).ready(function (){
     		searchAction(1, false);
