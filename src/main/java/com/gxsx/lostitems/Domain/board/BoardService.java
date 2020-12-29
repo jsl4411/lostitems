@@ -10,7 +10,8 @@ import java.util.List;
 public interface BoardService {
 
     List<Board> findAll();
-
+    
+    List<Board> findByBoardGroup(long boardGroup);
     Board findById(long board_seq);
 
     String write(Board board, String userid);

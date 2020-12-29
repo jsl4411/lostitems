@@ -17,7 +17,7 @@
 	<link rel="stylesheet" href="/css/beryllium/style.css">
 	<link rel="stylesheet" href="/css/beryllium/themify-icons.css">
 	<link rel="stylesheet" href="/css/topmenu.css">
-<!--===============================================================================================-->	
+<!--===============================================================================================-->
 	<link rel="icon" type="image/png" href="/images/coza/icons/favicon.png"/>
 	<link rel="stylesheet" type="text/css" href="/vendor/coza/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/fonts/coza/font-awesome-4.7.0/css/font-awesome.min.css">
@@ -41,8 +41,8 @@
 	</head>
 
 <body class="animsition">
-	
-	<!-- Header -->	
+
+	<!-- Header -->
 	<!-- *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* -->
 	<!-- ////////////////////////////////////// 맨 위 메뉴 시작 ////////////////////////////////////// -->
 	<header class="header-v4">
@@ -51,10 +51,10 @@
 
 			<div class="wrap-menu-desktop how-shadow1">
 				<nav class="limiter-menu-desktop container">
-					
-					<!-- Logo desktop -->		
+
+					<!-- Logo desktop -->
 					<a href="/" class="logo">
-						<img src="../images/003-.png" alt="IMG-LOGO">
+						<img src="/images/003-.png" alt="IMG-LOGO">
 					</a>
 
 					<!-- Menu desktop -->
@@ -76,14 +76,14 @@
 								<a href="/board/">Lostitem</a>
 							</li>
 							<li>
-								 <a href="../gxsx/contact.do">Contact</a>								 
+								 <a href="../gxsx/contact.do">Contact</a>
 							</li>
 						</ul>
-					</div>	
+					</div>
 
 					<!-- Icon header -->
 					<div class="wrap-icon-header flex-w flex-r-m">
-						<ul class="main-menu">					
+						<ul class="main-menu">
 							<c:if test="${ empty loginUser && empty klogin}">
 									<li><i class="zmdi zmdi-account-circle"></i>
 										<a href="../gxsx/login.do">Login</a></li>
@@ -120,12 +120,12 @@
 						            </li>
 							    </li>
 						    </c:if>
-								
+
 						<c:if test="${ !empty loginUser || !empty klogin }">
 							<li class="dropdown">
 					          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="ti-user"></i></a>
 					          <ul class="dropdown-menu notify-drop" style="min-width:150px">
-					            <div class="drop-content" data-tooltip="tooltip" data-placement="top" style="min-height:50px; overflow:hidden">							            
+					            <div class="drop-content" data-tooltip="tooltip" data-placement="top" style="min-height:50px; overflow:hidden">
 					            	<li><div>&nbsp;&nbsp;
 											<i class="ti-bookmark-alt"></i>&nbsp;&nbsp;<a href="../Users/mypage.do">마이페이지</a>
 					            		</div></li>
@@ -147,16 +147,16 @@
 					             </div>
 						      </ul>
 							</li>
-						</c:if>	
-						</ul>			
+						</c:if>
+						</ul>
 					</div>
 				</nav>
-			</div>	
+			</div>
 		</div>
 	</header>
 	<!-- ////////////////////////////////////// 맨 위 메뉴 종료 ////////////////////////////////////// -->
 	<!-- *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* -->
-     
+
 	<!-- *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* -->
 	<!-- /////////////////////////////////////// 컨텐츠 시작  /////////////////////////////////////// -->
 	<!-- breadcrumb -->
@@ -177,7 +177,7 @@
 			</span>
 		</div>
 	</div>
-	
+
 	<!-- Product Detail -->
 	<section class="sec-product-detail bg0 p-t-65 p-b-60">
 		<div class="container">
@@ -200,7 +200,7 @@
                                         </div>
                                     </div>
                                 </c:forEach>
-							
+
 							</div>--%>
 						</div>
 					</div>
@@ -265,7 +265,7 @@
 								</div></span>
 							</li>
 						</ul>
-						
+
 						<!-- botton -->
 						<div class="p-t-33">
 							<div class="flex-w flex-r-m p-b-10">
@@ -287,9 +287,9 @@
 										삭제
 									</button></a>
 								</c:if>--%>
-							</div>	
+							</div>
 						</div>
-						
+
 					</div>
 				</div>
 			</div>
@@ -313,28 +313,29 @@
 									<c:forEach var="comments" items="${boardcontant.comments}" varStatus="status">
 
 
-										<div class="size-207" id="locomment_${comment.comment_seq}" style="margin-left:100px">
+										<div class="size-207" id="comment_${comments.comment_seq}" style="margin-left:100px">
 											<div class="flex-w flex-sb-m p-b-17" style="justify-content: unset">
 												<span class="mtext-107 cl2 p-r-20">
 													${boardcontant.user.userid}
 													<span class="stext-102 cl6">&nbsp;
-														${comment.date} </span>
+														${comments.date} </span>
 												</span>
 
 												<span class="fs-18 cl11">
 												<c:if test="${loginUser eq boardcontant.user.userid }">
 													<c:if test="${!empty loginUser}">
-														<button id="btn${comment.comment_seq}"  type="button" onclick="update_form_id(this.value);" value="${comment.comment_seq}" class="stext-109 cl8 hov-cl1 trans-04">수정</button>
-														<button id="btndel${comment.comment_seq}" type="button" onclick="commentDelete('${comment.comment_seq}', '${ comment.seq }');" value="${comment.comment_seq}" class="stext-109 cl8 hov-cl1 trans-04" >삭제</button>
+														<button id="btn${comments.comment_seq}"  type="button" onclick="update_form_id(this.value);" value="${comments.comment_seq}" class="stext-109 cl8 hov-cl1 trans-04">수정</button>
+														<button id="btndel${comments.comment_seq}" type="button" id="comment_seq"onclick="commentDelete('${comments.comment_seq}', '${ comments.seq }');" value="${comments.comment_seq}" class="stext-109 cl8 hov-cl1 trans-04" >삭제</button>
+
 													</c:if>
 												</c:if>
 																				<!-- <a href="#" class="stext-109 cl8 hov-cl1 trans-04"><i class="zmdi zmdi-mail-reply"></i></a>  -->
 												</span>
 											</div>
 
-											<div id="update-form-${comment.comment_seq}">
+											<div id="update-form-${comments.comment_seq}">
 												<p class="stext-102 cl6">
-													<c:out value="${ comment.content }" escapeXml="true"/>
+													<c:out value="${ comments.content }" escapeXml="true"/>
 												</p>
 											</div>
 											<br/>
@@ -343,10 +344,10 @@
 									</c:forEach>
 
 								</div>
-								
+
 								<!-- Add review -->
 								<form class="w-full">
-									
+
 									<div class="row p-b-25">
 										<div class="col-12 p-b-5">
 										<label id="reply_to"></label>
@@ -367,7 +368,7 @@
 		</div>
 
 		<div class="bg6 flex-c-m flex-w size-302 m-t-73 p-tb-15">
-			
+
 		</div>
 	</section>
 
@@ -392,13 +393,13 @@
 									<a href="../lostitem/locontent.do?lono=${related.lono}" >
 									<img src="../images/Lostimgs/${related.lopicname}" alt="IMG-PRODUCT"></a>
 								</div>
-	
+
 								<div class="block2-txt flex-w flex-t p-t-14">
 									<div class="block2-txt-child1 flex-col-l ">
 										<a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
 											${related.lodate}
 										</a>
-	
+
 										<span class="stext-105 cl3">
 											<a href="../lostitem/locontent.do?lono=${related.lono}" class="cl3" >${related.losub}</a>
 										</span>
@@ -414,45 +415,45 @@
 	</section>
 	<!-- /////////////////////////////////////// 컨텐츠 종료  /////////////////////////////////////// -->
 	<!-- *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* -->
-	
+
 	<!-- *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* -->
 	<!-- ////////////////////////////////////// footer 시작 ////////////////////////////////////// -->
 
 	<footer class="bg3 p-t-75 p-b-32">
 		<div class="container">
 			<div class="row">
-			
+
 				<div class="col-sm-6 col-lg-3 p-b-50">
 						<h4 class="stext-301 cl0 p-b-30" style="font-size:100px">
 							<img src="../images/003-w.png" >
 						</h4>
-	
+
 					</div>
-				
+
 				<div class="col-sm-6 col-lg-3 p-b-50">
 					<h4 class="stext-301 cl0 p-b-30">
 						CATEGORIES
 					</h4>
-					
+
 						<ul>
 							<li class="p-b-10">
 								<a href="../gxsx/notice.do" class="stext-107 cl7 hov-cl1 trans-04">
 									Notice
 								</a>
 							</li>
-	
+
 							<li class="p-b-10">
 								<a href="../finditem/list.do?cp=1" class="stext-107 cl7 hov-cl1 trans-04">
 									Finditem
 								</a>
 							</li>
-	
+
 							<li class="p-b-10">
 								<a href="../lostitem/list.do?cp=1" class="stext-107 cl7 hov-cl1 trans-04">
 									Lostitem
 								</a>
-							</li>	
-						</ul> 
+							</li>
+						</ul>
 				</div>
 
 				<div class="col-sm-6 col-lg-3 p-b-50">
@@ -461,7 +462,7 @@
 					</h4>
 
 					<p class="stext-107 cl7 size-201">
-						<i class="fa fa-home"></i> 서울 마포구 백범로 23 구프라자 3층, 
+						<i class="fa fa-home"></i> 서울 마포구 백범로 23 구프라자 3층,
 						<br/>&nbsp;&nbsp;&nbsp; (지번)신수동 63-14 구프라자 3층
 					</p>
 					<p class="stext-107 cl7 size-201">
@@ -469,7 +470,7 @@
 					</p>
 					<p class="stext-107 cl7 size-201">
 						<i class="fa fa-envelope"></i> javaoneteam@gmail.com
-						
+
 					</p>
 
 					<div class="p-t-27">
@@ -509,19 +510,19 @@
 
 			<p class="stext-107 cl6 txt-center">
 			<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-			Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | by Sansillyung <i class="fa fa-heart-o" aria-hidden="true"></i> 
+			Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | by Sansillyung <i class="fa fa-heart-o" aria-hidden="true"></i>
 			<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 
 				</p>
 			</div>
 		</div>
 	</footer>
-	
-	<!-- ////////////////////////////////////// footer 종료 ////////////////////////////////////// -->	
+
+	<!-- ////////////////////////////////////// footer 종료 ////////////////////////////////////// -->
 	<!-- *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* -->
 
 
-	<!-- Back to top -->
+	<%--<!-- Back to top -->
 	<div class="btn-back-to-top" id="myBtn">
 		<span class="symbol-btn-back-to-top">
 			<i class="zmdi zmdi-chevron-up"></i>
@@ -581,7 +582,7 @@
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="col-md-6 col-lg-5 p-b-30">
 						<div class="p-r-50 p-t-5 p-lr-0-lg">
 							<h4 class="mtext-105 cl2 js-name-detail p-b-14">
@@ -595,7 +596,7 @@
 							<p class="stext-102 cl3 p-t-23">
 								Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare feugiat.
 							</p>
-							
+
 							<!--  -->
 							<div class="p-t-33">
 								<div class="flex-w flex-r-m p-b-10">
@@ -654,7 +655,7 @@
 											Add to cart
 										</button>
 									</div>
-								</div>	
+								</div>
 							</div>
 
 							<!--  -->
@@ -682,9 +683,9 @@
 				</div>
 			</div>
 		</div>
-	</div>
-	
-<!--===============================================================================================-->	
+	</div>--%>
+
+<!--===============================================================================================-->
 	<script src="/vendor/coza/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
 	<script src="/vendor/coza/animsition/js/animsition.min.js"></script>
@@ -784,7 +785,7 @@
 	</script>
 <!--===============================================================================================-->
 	<script src="/js/coza/main.js"></script>
-	
+
 	<!-- 자바스크립트  -->
 	<script src="/js/tempjs/LoComments.js"></script>
 	<script>
@@ -792,7 +793,6 @@
 		commentList("${ boardcontant.board_seq }");
 
 			function boardDelete(){
-			alert($("#board_seq").html())
 
 			$.ajax({
 			type:"GET",
@@ -800,6 +800,7 @@
 			contentType: 'application/json',
 			dataType: 'text',
 			success: function(data){
+				alert("게시물이 지워졌습니다.")
 			location.href='/board/'
 		},
 			error: function(data){

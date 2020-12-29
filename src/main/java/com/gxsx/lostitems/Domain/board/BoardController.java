@@ -25,14 +25,20 @@ public class BoardController {
     private CommentService commentService;
 
 
-    @RequestMapping(value = "/")
-    public String board(Model model, HttpServletRequest request){
-        List<Board> boardList = boardService.findAll();
+    @RequestMapping(value = "/{boardGroup}")
+    public String board(Model model, HttpServletRequest request, @PathVariable String boardGroup){
+
+        System.out.println(boardGroup);
+
+        List<Board> boardList = boardService.findByBoardGroup(Long.parseLong(boardGroup));
 
         model.addAttribute("loginUser",request.getSession().getAttribute("loginUser"));
         model.addAttribute("boardlist",boardList);
-
-        return "board/lolist";
+        if(boardGroup.equals("0")){
+            return "board/findlist";
+        }else {
+            return "board/lolist";
+        }
     }
 
     @GetMapping(value = "/write")

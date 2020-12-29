@@ -196,9 +196,9 @@
 								</div>
 								<div class='card-body fs-12'>
 									<form class='form2 fs-12' method='post'  name='input' id='form2' role='form2' enctype='multipart/form-data'
-										autocomplete='off' action='/board/api/edit/'>
+										autocomplete='off' onsubmit="return false;" >
 
-										<input type="hidden" name="board_seq" value="${boardedit.board_seq}">
+										<input type="hidden" name="board_seq" id="board_seq" value="${boardedit.board_seq}">
 
 
 										<div class='form-group row'>
@@ -214,7 +214,7 @@
 											<label for='inputSub'
 												class='col-lg-2 col-form-label form-control-label'>제목</label>
 											<div class='col-lg-10'>
-											<input class='form-control fs-12' type='text' id='editSub'
+											<input class='form-control fs-12' type='text' id='board_sub'
 													name='losub' value='${boardedit.board_sub}' required=''>
 											</div>
 										</div>
@@ -225,7 +225,7 @@
 												class='col-lg-2 col-form-label form-control-label'>날짜</label>
 											<div class='col-lg-10'>
 
-												<input class='form-control fs-12' type='date' id='editDate'
+												<input class='form-control fs-12' type='date' id='date'
 													name='date' value='${boardedit.date}' required=''>
 											</div>
 										</div>
@@ -258,7 +258,7 @@
 											<label for='inputPlace'
 												class='col-lg-2 col-form-label form-control-label' style="text-align:right">분실장소</label>
 											<div class='col-lg-5'>
-												<input class='form-control fs-12' type='text' id='editPlace'
+												<input class='form-control fs-12' type='text' id='place'
 													name='place' value='${boardedit.place}' required=''>
 											</div>
 										</div>
@@ -267,7 +267,7 @@
 											<label for='inputArea'
 												class='col-lg-2 col-form-label form-control-label'>물품종류</label>
 											<div class='col-lg-3'>
-											      <select class="ui fluid dropdown" name="locname">
+											      <select class="ui fluid dropdown" name="category">
 											        	<option <c:if test="${(boardedit.category) == '가방'}">selected='selected'</c:if> value="가방">가방</option>
 														<option <c:if test="${(boardedit.category) == '귀금속'}">selected='selected'</c:if> value="귀금속">귀금속</option>
 														<option <c:if test="${(boardedit.category) == '도서용품'}">selected='selected'</c:if> value="도서용품">도서용품</option>
@@ -291,9 +291,9 @@
 												class='col-lg-2 col-form-label form-control-label' style="text-align:right">보상여부</label>
 											<div class='col-lg-5'>
 												<div class="select-box">
-													<select name="logift" class="ui fluid dropdown" id="giftname">
-											          	<option value="0">없음</option>
-											          	<option value="1">있음</option>
+													<select name="board_group" class="ui fluid dropdown" id="board_group">
+											          	<option value="0">분실물</option>
+											          	<option value="1">습득물</option>
 											   	  	</select>
 											   	</div>
 											</div>
@@ -303,7 +303,7 @@
 											<label for='inputPnum'
 												class='col-lg-2 col-form-label form-control-label'>내용</label>
 											<div class='col-lg-10'>
-												<textarea rows="2" class='form-control csisize fs-12' type='text' id='editCon'
+												<textarea rows="2" class='form-control csisize fs-12' type='text' id='content'
 													name='content' value='${boardedit.content}' required=''></textarea>
 											</div>
 										</div>
@@ -319,7 +319,7 @@
 												style='opacity: 0; pointer-events: none'></div>
 											<button
 												class='flex-c-m stext-101 cl2 size-119 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-10'
-												id='submit2' name='submit2' type='submit'>
+												id='submit2' name='submit2' onclick="boardEdit()">
 												수정</button>
 											&emsp;
 											<div
@@ -552,7 +552,33 @@
 	</script>
 <!--===============================================================================================-->
 	<script src="/js/coza/main.js"></script>
+<script>
+	function boardEdit(){
+		alert($("#board_group").val())
 
+
+		$.ajax({
+			type:"POST",
+			url:"/board/api/edit/"+$("#board_seq").val(),
+			contentType: 'application/json',
+			dataType: 'text',
+			data: JSON.stringify
+			({	"board_seq":$("#board_seq").val(),
+				"board_group":$("#board_group").val(),
+				"ano":$("#ano").val(),
+				"category":$("#category").val(),
+				"content":$("#content").val(),
+				"place":$("#place").val(),
+				"board_sub":$("#board_sub").val()}),
+			success: function(data){
+				location.href='/board/'
+			},
+			error: function(data){
+				alert("애러");
+			}
+		});
+	}
+</script>
 
 </body>
 </html>

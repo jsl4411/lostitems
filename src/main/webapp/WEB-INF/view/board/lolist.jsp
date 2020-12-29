@@ -26,7 +26,9 @@
 	<link rel="stylesheet" type="text/css" href="../vendor/coza/animate/animate.css">
 	<link rel="stylesheet" type="text/css" href="../vendor/coza/css-hamburgers/hamburgers.min.css">
 	<link rel="stylesheet" type="text/css" href="../vendor/coza/animsition/css/animsition.min.css">
+<%--
 	<link rel="stylesheet" type="text/css" href="../vendor/coza/select2/select2.min.css">
+--%>
 	<link rel="stylesheet" type="text/css" href="../vendor/coza/daterangepicker/daterangepicker.css">
 	<link rel="stylesheet" type="text/css" href="../vendor/coza/slick/slick.css">
 	<link rel="stylesheet" type="text/css" href="../vendor/coza/MagnificPopup/magnific-popup.css">
@@ -286,11 +288,11 @@
 
 								<div class="block2-txt-child2 flex-r p-t-3">
 									<a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-										<c:if test="${boardlist.board_group!=0}">
+										<c:if test="${boardlist.boardGroup!=0}">
 											<img class="icon-heart1 dis-block trans-04" src="../images/coza/icons/icon-heart-02.png" alt="ICON">
 											<img class="icon-heart2 dis-block trans-04 ab-t-l" src="../images/coza/icons/icon-heart-02.png" alt="ICON">
 										</c:if>
-										<c:if test="${boardlist.board_group==0}">
+										<c:if test="${boardlist.boardGroup==0}">
 											<img class="icon-heart1 dis-block trans-04" src="../images/coza/icons/icon-heart-01.png" alt="ICON">
 											<img class="icon-heart2 dis-block trans-04 ab-t-l" src="../images/coza/icons/icon-heart-01.png" alt="ICON">
 										</c:if>
@@ -607,7 +609,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="../vendor/coza/bootstrap/js/popper.js"></script>
 	<script src="../vendor/coza/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
-	<script src="../vendor/coza/select2/select2.min.js"></script>
+<%--	<script src="../vendor/coza/select2/select2.min.js"></script>
 	<script>
 		$(".js-select2").each(function(){
 			$(this).select2({
@@ -615,7 +617,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 				dropdownParent: $(this).next('.dropDownSelect2')
 			});
 		})
-	</script>
+	</script>--%>
 <!--===============================================================================================-->
 	<script src="../vendor/coza/daterangepicker/moment.min.js"></script>
 	<script src="../vendor/coza/daterangepicker/daterangepicker.js"></script>
@@ -707,9 +709,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="../js/losearch.js"></script>
 --%>
     <script>
-    	$(document).ready(function (){
-    		searchAction(1, false);
-        })
+
     </script>
 </body>
 </html>

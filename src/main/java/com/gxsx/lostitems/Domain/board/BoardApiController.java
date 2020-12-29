@@ -24,7 +24,7 @@ public class BoardApiController {
         return "index";
     }
 
-    @RequestMapping(value = "findall", method = RequestMethod.GET)
+    @RequestMapping(value = "/findall", method = RequestMethod.GET)
     public List<Board> findAll(){
             Board board1 = new Board();
             System.out.println("@@@@@@@@@@@@@@@@"+board1.getUser());
@@ -49,8 +49,9 @@ public class BoardApiController {
         return boardService.deleteById(board_seq);
     }
     @PostMapping("/edit/{board_seq}")
-    public String update(Board board, HttpServletRequest request){
+    public String update(@RequestBody Board board, HttpServletRequest request){
         String userid = (String) request.getSession().getAttribute("loginUser");
+        System.out.println("edit!!@@!!"+board);
 
         return boardService.update(board,userid);
     }

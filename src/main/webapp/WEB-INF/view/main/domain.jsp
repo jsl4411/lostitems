@@ -69,11 +69,11 @@
 							</li>
 
 							<li class="label1" data-label1="습득물">
-								<a href="../finditem/list.do?cp=1">Finditem</a>
+								<a href="/board/0">Finditem</a>
 							</li>
 
 							<li class="label1" data-label1="분실물">
-								<a href="/board/">Lostitem</a>
+								<a href="/board/1">Lostitem</a>
 							</li>
 							<li>
 								 <a href="../gxsx/contact.do">Contact</a>								 

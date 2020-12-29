@@ -26,6 +26,12 @@ public class BoardServiceImpl implements BoardService{
     }
 
     @Override
+    public List<Board> findByBoardGroup(long boardGroup) {
+
+        return boardRepository.findByBoardGroup(boardGroup);
+    }
+
+    @Override
     public Board findById(long board_seq) {
 
         return boardRepository.findById(board_seq).orElse(null);
@@ -37,7 +43,7 @@ public class BoardServiceImpl implements BoardService{
         Optional<User> user = Optional.ofNullable(userRepository.findUserByUserid(userid));
         Board board1 = new Board();
         board1.setUser(user.get());
-        board1.setBoard_group(board.getBoard_group());
+        board1.setBoardGroup(board.getBoardGroup());
         board1.setBoard_sub(board.getBoard_sub());
         board1.setDate(board.getDate());
         board1.setContent(board.getContent());
@@ -63,8 +69,18 @@ public class BoardServiceImpl implements BoardService{
     public String update(Board board, String userid) {
         Optional<User> user = Optional.ofNullable(userRepository.findUserByUserid(userid));
         Board board1 = new Board();
+        board1.setBoard_seq(board.getBoard_seq());
         board1.setUser(user.get());
-        boardRepository.save(board);
+        board1.setBoardGroup(board.getBoardGroup());
+        board1.setBoard_sub(board.getBoard_sub());
+        board1.setPlace(board.getPlace());
+        board1.setContent(board.getContent());
+        board1.setCategory(board.getCategory());
+        board1.setDate(board.getDate());
+        board1.setAno(board.getAno());
+
+        System.out.println("service edit@@!@!@"+board1);
+        boardRepository.save(board1);
 
         return "success";
     }

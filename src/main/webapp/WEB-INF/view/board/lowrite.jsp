@@ -220,7 +220,7 @@
 								</div>
 								<div class='card-body fs-12'>
 									<form class='form2 fs-12' method='post'  name='write' id='form2' role='form2' enctype='multipart/form-data'
-										autocomplete='off' action=''>
+										autocomplete='off' onsubmit="return false;">
 										<div class='form-group row'>
 											<label for='noinputId'
 												class='col-lg-2 col-form-label form-control-label'>작성자</label>

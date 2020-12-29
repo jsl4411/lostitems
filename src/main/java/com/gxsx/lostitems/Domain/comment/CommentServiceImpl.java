@@ -1,6 +1,5 @@
 package com.gxsx.lostitems.Domain.comment;
 
-import com.gxsx.lostitems.Domain.board.Board;
 import com.gxsx.lostitems.Domain.board.BoardRepository;
 import com.gxsx.lostitems.Domain.user.User;
 import com.gxsx.lostitems.Domain.user.UserRepository;
@@ -29,8 +28,10 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public Comment findBySeq(long seq) {
-        return commentRepository.findById(seq).orElse(null);
+    public List<Comment> findBySeq(long seq) {
+
+
+        return commentRepository.findBySeq(seq);
     }
 
     @Override
@@ -54,4 +55,21 @@ public class CommentServiceImpl implements CommentService {
 
         return "success";
     }
+
+    @Override
+    public String update(Comment comment, String userid) {
+        Optional<User> user = Optional.ofNullable(userRepository.findUserByUserid(userid));
+        Comment comment1 = new Comment();
+        comment1.setSeq(comment.getSeq());
+        comment1.setDate(comment.getDate());
+        comment1.setComment_seq(comment.getComment_seq());
+        comment1.setContent(comment.getContent());
+        comment1.setUser(user.get());
+
+        System.out.println("@@@@serviceCommentEdit"+ comment1);
+        commentRepository.save(comment1);
+
+        return "success";
+    }
+
 }

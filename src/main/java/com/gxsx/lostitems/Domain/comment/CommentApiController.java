@@ -17,17 +17,12 @@ public class CommentApiController {
     @Autowired
     CommentService commentService;
 
-    @RequestMapping(value = "",method = RequestMethod.GET)
-    public List<Comment> findAll(){
-        Comment comment = new Comment();
+    @RequestMapping(value = "/{board_seq}",method = RequestMethod.GET)
+    public List<Comment> findAll(@PathVariable("board_seq") String board_seq){
 
-        return (List<Comment>) commentService.findAll();
-    }
-    @RequestMapping(value = "/findone/{seq}")
-    public Comment findBySeq(@PathVariable("seq")long seq){
-        Comment comment = commentService.findBySeq(seq);
+        System.out.println(commentService.findBySeq(Long.parseLong(board_seq)));
 
-        return comment;
+        return commentService.findBySeq(Long.parseLong(board_seq));
     }
 
 
@@ -42,6 +37,13 @@ public class CommentApiController {
     public String delete(@PathVariable("comment_seq") String comment_seq){
 
         return commentService.delete(Long.parseLong(comment_seq));
+    }
+    @PostMapping(value ="/edit/{comment_seq}")
+    public String update(@RequestBody Comment comment, HttpServletRequest request){
+        String userid = (String) request.getSession().getAttribute("loginUser");
+        System.out.println("@@@@@@editComment"+comment);
+
+        return commentService.update(comment,userid);
     }
 
 }

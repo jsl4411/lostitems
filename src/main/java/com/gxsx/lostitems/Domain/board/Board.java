@@ -51,7 +51,7 @@ public class Board {
     private String category;
 
     @Column(nullable = false)
-    private Long board_group;
+    private Long boardGroup;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name="seq")
